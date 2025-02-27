@@ -1,0 +1,43 @@
+/* Gaya Umum */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #EAF4FC;
+    text-align: center;
+    color: #333;
+}
+
+h2 {
+    color: #2C5B80;
+}
+
+/* Gaya Tabel */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #D1E3F3;
+    text-align: left;
+}
+
+th {
+    background-color: #5C8EBE;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #F3F9FF;
+}
+
+table td a img {
+    width: 24px;  
+    height: 24px;
+
+}

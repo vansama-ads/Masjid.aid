@@ -18,6 +18,19 @@ if (isset($_GET['search'])) {
 $sql = mysqli_query($koneksi, $query);
 ?>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Cek apakah ada parameter 'search' di URL
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has("search")) {
+            // Scroll ke section masjid-list
+            const masjidSection = document.querySelector(".masjid-list");
+            if (masjidSection) {
+                masjidSection.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    });
+</script>
 
 
 
@@ -45,9 +58,7 @@ $sql = mysqli_query($koneksi, $query);
                     <li><a href="homepage.php">Home</a></li>
                     <li><a href="info.php">Information</a></li>
                     <li><a href="aboutpage.php">About</a></li>
-                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') : ?>
-        <li><a href="admin/admin.php">Dashboard</a></li>
-    <?php endif; ?>
+                    
                     
                     <?php if (isset($_SESSION['logged_in'])) : ?>
     <li><a href="login_user/logout.php">Logout</a></li>
@@ -85,18 +96,21 @@ $sql = mysqli_query($koneksi, $query);
         
         </button>
         <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') : ?>
-            <button class="icon-button">
-            <div class="icon-circle">
-                <img src="img/assets/profile-icon.svg" alt="Profile">
-            </div>
-            <p>Admin Dashboard</p>
+            <a href="admin/admin.php" class="icon-button">
+    <div class="icon-circle">
+        <img src="img/assets/dashboard-icon.svg" alt="Dashboard">
+    </div>
+    <p>Dashboard</p>
+            </a>
+
     <?php endif; ?>
-        <button class="icon-button">
-            <div class="icon-circle">
-                <img src="img/assets/profile-icon.svg" alt="Profile">
-            </div>
-            <p>Profile</p>
-        </button>
+    <a href="profile/profile.php" class="icon-button">
+    <div class="icon-circle">
+        <img src="img/assets/profile-icon.svg" alt="Profile">
+    </div>
+    <p>Profile</p>
+</a>
+
     </section>
     <section class="masjid-list">
     <div class="location-title">
@@ -107,10 +121,10 @@ $sql = mysqli_query($koneksi, $query);
     <div class="masjid-container">
     <?php while ($result = mysqli_fetch_assoc($sql)){?>
         <div class="masjid-card">
-            <img src="img/albadar.png" alt="Masjid Al-Badar">
+            <img src="img/<?php echo $result['foto']; ?>">
             <h3><?php echo $result ['nama']; ?></h3>
             <p><?php echo $result ['alamat']; ?></p>
-            <button class="donasi-btn">DONASI</button>
+            <a  class="donasi-btn" href="donasi/page/form_donasi.php?id_donasi=<?= $result['id_donasi'] ?>">DONASI </a>
         </div>
         <?php }?>
        

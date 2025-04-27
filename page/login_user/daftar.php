@@ -17,11 +17,11 @@
 <body>
       <?php
             if(isset($_POST['username'])){
-                $nama = $_POST ['nama'];
-                $username = $_POST ['username'];
-                $email = $_POST ['email'];
-                $no_hp = $_POST ['no_hp'];
-                $password = $_POST ['sandi'];
+                $nama =  mysqli_real_escape_string($koneksi, $_POST['nama']);
+                $username = mysqli_real_escape_string($koneksi, $_POST['username']);
+                $email =  mysqli_real_escape_string($koneksi, $_POST['email']);
+                $no_hp =  mysqli_real_escape_string($koneksi, $_POST['no_hp']);
+                $password = password_hash($_POST['sandi'], PASSWORD_DEFAULT);
                 //default role
                 $role = 'user';
 

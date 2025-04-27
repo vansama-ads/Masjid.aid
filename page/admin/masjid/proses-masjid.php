@@ -4,7 +4,15 @@ include "../../login_user/koneksi.php";
 // Hapus Data
 if (isset($_GET['hapus'])) {
     $id_donasi = $_GET['hapus'];
-    
+
+    $queryShow = "SELECT * FROM donasi_tujuan WHERE id_donasi = '$id_donasi'";
+    $sqlShow = mysqli_query($koneksi, $queryShow);
+    $result = mysqli_fetch_assoc($sqlShow);
+
+    if ($result) {
+        unlink("../../img/" . $result['foto']);
+    }
+
     // Hapus data dari database
     $query = "DELETE FROM donasi_tujuan WHERE id_donasi = '$id_donasi'";
     $sql = mysqli_query($koneksi, $query);
@@ -22,31 +30,58 @@ if (isset($_POST['aksi'])) {
     $nama = mysqli_real_escape_string($koneksi, $_POST['nama']);
     $alamat = mysqli_real_escape_string($koneksi, $_POST['alamat']);
     $deskripsi = mysqli_real_escape_string($koneksi, $_POST['deskripsi']);
+    $foto = $_FILES['foto']['name'];
     $id_donasi = isset($_POST['id']) ? $_POST['id'] : null;
 
+    $dir = "../../img/";
+    $tmpFile = $_FILES['foto']['tmp_name'];
+
+    if (!empty($foto)) {
+        move_uploaded_file($tmpFile, $dir . $foto);
+    }
+
     if ($_POST['aksi'] == "add") {
-        // Insert Data (TIDAK ADA FOTO)
-        $query = "INSERT INTO donasi_tujuan (nama, alamat, deskripsi) VALUES ('$nama', '$alamat', '$deskripsi')";
+        // Insert Data
+        $query = "INSERT INTO donasi_tujuan (foto, nama, alamat, deskripsi) VALUES ('$foto', '$nama', '$alamat', '$deskripsi')";
     } elseif ($_POST['aksi'] == "edit") {
         // Pastikan `id_donasi` ada sebelum update
-        $query_check = "SELECT * FROM donasi_tujuan WHERE id_donasi = '$id_donasi'";
+        $query_check = "SELECT foto FROM donasi_tujuan WHERE id_donasi = '$id_donasi'";
         $result_check = mysqli_query($koneksi, $query_check);
+        $data = mysqli_fetch_assoc($result_check);
 
-        if (mysqli_num_rows($result_check) > 0) {
-            // Update Data (FOTO TIDAK BERUBAH)
-            $query = "UPDATE donasi_tujuan SET nama='$nama', alamat='$alamat', deskripsi='$deskripsi' WHERE id_donasi='$id_donasi'";
-        } else {
+        if (!$data) {
             echo '<script>alert("Data tidak ditemukan!"); location.href="admin-masjid.php";</script>';
             exit();
         }
+
+        $query = "UPDATE donasi_tujuan SET nama='$nama', alamat='$alamat', deskripsi='$deskripsi'";
+
+        // Jika ada file foto baru yang diunggah
+        if (!empty($foto)) {
+            $foto_baru = $foto;
+            $uploadPath = "../../img/" . $foto_baru;
+
+            // Hapus foto lama jika ada
+            if (!empty($data['foto']) && file_exists("../../img/" . $data['foto'])) {
+                unlink("../../img/" . $data['foto']);
+            }
+
+            // Upload foto baru
+            move_uploaded_file($tmpFile, $uploadPath);
+
+            // Tambahkan ke query untuk update foto
+            $query .= ", foto='$foto_baru'";
+        }
+
+        $query .= " WHERE id_donasi='$id_donasi'";
     }
 
     $sql = mysqli_query($koneksi, $query);
 
     if ($sql) {
-        echo '<script>alert("Data berhasil disimpan!"); location.href="admin-masjid.php";</script>';
+        echo '<script>alert("Data berhasil diperbarui!"); location.href="admin-masjid.php";</script>';
     } else {
-        echo '<script>alert("Gagal menyimpan data!"); location.href="add-masjid.php";</script>';
+        echo '<script>alert("Gagal memperbarui data!"); location.href="admin-masjid.php";</script>';
     }
 }
 ?>

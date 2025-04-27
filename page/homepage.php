@@ -25,7 +25,7 @@ $sql = mysqli_query($koneksi, $query);
     <link rel="stylesheet" href="css/style-home.css" />
 </head>
 <body>
-    <header>
+<header>
         <div class="fcontainer">
             <nav class="wrapper">
                 <div class="brand">
@@ -44,20 +44,29 @@ $sql = mysqli_query($koneksi, $query);
     </form>
 </div>
   
-                <ul class="navigation">
-                    <li><a href="homepage.php">Home</a></li>
-                    <li><a href="info.php">Information</a></li>
-                    <li><a href="aboutpage.php">About</a></li>
-                    
-                    <?php if (isset($_SESSION['logged_in'])) : ?>
-    <li><a href="login_user/logout.php">Logout</a></li>
-<?php else : ?>
-    <li><a href="login_user/login.php">Login</a></li>
-<?php endif; ?>       
-                </ul>
+<ul class="navigation">
+    <li><a href="homepage.php">Home</a></li>
+    <li><a href="info.php">Information</a></li>
+    <li><a href="aboutpage.php">About</a></li>
+
+    <?php if (isset($_SESSION['logged_in'])) : ?>
+        <li class="dropdown">
+            <a href="#">Account ▼</a>
+            <ul class="dropdown-menu">
+                <li><a href="profile/profile.php">Profile</a></li>
+                <li><a href="login_user/logout.php">Logout</a></li>
+            </ul>
+        </li>
+    <?php else : ?>
+        <li><a href="login_user/login.php">Login</a></li>
+    <?php endif; ?>  
+</ul>
+
+
             </nav>
         </div>
-    </header>
+    </header> 
+
     <section class="home">
         <div class="home-content">
             <h1>Masjid.Aid</h1>
@@ -67,6 +76,8 @@ $sql = mysqli_query($koneksi, $query);
         </div>
         
     </section> 
+    
+
     <section class="cara-donasi">
         <h2>Cara Donasi</h2>
         <div class="step">
@@ -133,6 +144,7 @@ $sql = mysqli_query($koneksi, $query);
     </div>
 </section>
 <section class="dalil">
+        
         <p><em>"Perumpamaan orang yang menginfakkan hartanya di jalan Allah seperti sebutir biji yang menumbuhkan tujuh tangkai, pada setiap tangkai ada seratus biji. Dan Allah melipatgandakan bagi siapa yang Dia kehendaki."</em></p>
         <p><em>(QS. Al-Baqarah: 261)</em></p>
     </section>
@@ -158,7 +170,7 @@ $sql = mysqli_query($koneksi, $query);
                 </div>
                 <div class="footer-section">
                     <h3>Tentang Kami</h3>
-                    <p><a href="#">Profile</a></p>
+                    <p><a href="aboutpage.php">Profile</a></p>
                     <p><a href="#">Visi & Misi</a></p>
                 </div>
                 <div class="footer-section">

@@ -36,11 +36,21 @@ if (isset($_GET['ubah'])) {
 <body>
 
 
-    <form  method="POST" action="proses-masjid.php" >
+    <form  method="POST" action="proses-masjid.php" enctype="multipart/form-data">
     <table align="center">
-            <tr>
+            <tr>  
                 <td colspan="2" align="center" >
-                    Tambah Donasi
+                <?php
+                       if(isset($_GET['ubah'])){
+                    ?>
+                   Edit
+                    <?php
+                         } else {
+                    ?> 
+                        Tambah
+                    <?php
+                         }
+                    ?> 
                 </td>
             </tr>
             <input type="hidden" name="id" value="<?php echo isset($_GET['ubah']) ? $_GET['ubah'] : ''; ?>">
@@ -51,7 +61,7 @@ if (isset($_GET['ubah'])) {
             <tr>
                 
                 <td>Foto</td>
-                <td><input type="file"  name="foto" value="<?php echo $foto; ?>"></td>
+                <td><input type="file"  name="foto" value="<?php echo $foto; ?>" accept="image/*"></td>
             </tr>
             <tr>
                 <td>Alamat</td>

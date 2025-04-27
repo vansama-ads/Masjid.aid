@@ -33,17 +33,25 @@ include "login_user/koneksi.php";
     </form>
 </div>
   
-                <ul class="navigation">
-                    <li><a href="homepage.php">Home</a></li>
-                    <li><a href="info.php">Information</a></li>
-                    <li><a href="aboutpage.php">About</a></li>
-                    
-                    <?php if (isset($_SESSION['logged_in'])) : ?>
-    <li><a href="login_user/logout.php">Logout</a></li>
-<?php else : ?>
-    <li><a href="login_user/login.php">Login</a></li>
-<?php endif; ?>       
-                </ul>
+<ul class="navigation">
+    <li><a href="homepage.php">Home</a></li>
+    <li><a href="info.php">Information</a></li>
+    <li><a href="aboutpage.php">About</a></li>
+
+    <?php if (isset($_SESSION['logged_in'])) : ?>
+        <li class="dropdown">
+            <a href="profile/profile.php">Account ▼</a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Profile</a></li>
+                <li><a href="login_user/logout.php">Logout</a></li>
+            </ul>
+        </li>
+    <?php else : ?>
+        <li><a href="login_user/login.php">Login</a></li>
+    <?php endif; ?>  
+</ul>
+
+
             </nav>
         </div>
     </header> 

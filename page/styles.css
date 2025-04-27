@@ -1,40 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-*, html, body {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: "Poppins", sans-serif;
-    
-   
-
+    scroll-behavior: smooth;
 }
 
-header {
+
+
+  header {
+   
     top: 0;
-    position: fixed;
+    left: 0;
     width: 100%;
-    height: 80px;
-    z-index: 1000;
+    height: 80px; /* Sesuaikan dengan tinggi header */
+    background: linear-gradient(to right, #4555ad, #6696d5);
+    z-index: 1000; /* Supaya selalu di atas */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-    overflow: hidden; /* Mencegah overflow yang menyebabkan scroll */
+    padding: 0 20px;
 }
 
 
 header {
-    background: linear-gradient(to right, #4555ad, #6696d5); /* Background pindah ke sini */
+    background: linear-gradient(to right, #4555ad, #6696d5, ); /* Background pindah ke sini */
 }
 
 
-.fcontainer {
-    display: flex;
-    width: 100%;
-    
-    
-}
-
-
-    
 .wrapper {
     display: flex;
     align-items: center;
@@ -43,7 +38,7 @@ header {
     padding: 10px;
     width: 100%;
     height: 80px;
-    overflow: hidden; /* Pastikan elemen di dalamnya tidak meluber */
+    overflow: visible; /* Pastikan elemen di dalamnya tidak meluber */
 }
 
 .brand {
@@ -60,334 +55,198 @@ header {
     padding-top: 0; /* Hindari padding berlebih */
     margin-top: 10px;
 }
-
-
-
-.navigation{
+ 
+  .container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    padding-top: 1000px; /* Pastikan lebih besar dari tinggi header */
+    padding: 20px;
+  }
+  .content {
     
-
+    padding-top: 1000px; /* Pastikan lebih besar dari tinggi header */
+    padding: 20px;
 }
 
-.navigation>li{
-    list-style-type: none;
-    padding: 25px;
-}
-
-.navigation>li>a {
-    color: white;
-    font-size: 20px;
-    text-decoration: none;
-    text-transform: capitalize;
-}
-
-.navigation>li>a:hover {
-    color: rgb(13, 30, 13);
-    
-    transition: all .2s ease-in-out;
-}
-
-.active{
-    padding: 13px 30px;
-    width: 100%;
-    background-color: #110d1e;
-    color: #eaeaea;
+  .card {
+    border: 2px solid #ddd;
+    background: white;
     border-radius: 20px;
-}
-
-.active:hover {
-    color: #eaeaea !important;
-}
-
-
-
-.navigation>li>img{
-    width: 50px;
-    height: 50px;
-}
-
-
-
-
-
-
-
-
-
-.banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 40px;
+    width: 800px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     text-align: center;
-    height: 550px; /* Tinggi sesuai kebutuhan */
-    background: url(img/assets/info-bg.png) center/cover no-repeat ;
-   
-    color: aliceblue;
-   
-}
-
-.banner-content h1 {
-    font-size: 42px; /* Sesuaikan */
-    line-height: 1.2; /* Biarkan agak tinggi */
-    margin: 10px; /* Hapus margin bawaan */
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-   
-    
-}
-
-.search-box {
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    background: white;
-    border-radius: 25px;
-    padding: 10px 15px;
-    width: 100%px;
-    max-width: 500px;
-    height: 20px; /* Samakan tinggi dengan teks */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-
-.search-icon img {
-    width: 16px;
-    height: 16px;
-    margin-right: 10px;
-    padding-top: 4px;
-}
-
-.search-input {
-    flex: 1;
-}
-
-.search-input input {
-    border: none;
-    outline: none;
+  }
+  
+  .logo {
+    width: 60px;
+    margin-bottom: 20px;
+  }
+  
+  .thanks {
     font-size: 16px;
-    width: 100%;
-   
-    
-}
-
-
-
-
-.button-section {
-    display: flex;
-    justify-content: center;
-    gap: 200px;
-    padding-top: 100px;
-}
-
-.icon-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .highlight {
     font-weight: 600;
-    color: #000;
-}
-
-.icon-circle {
-    width: 130px;
-    height: 130px;
-    background: white;
-    border-radius: 50%;
+  }
+  
+  .masjid-name {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+  
+  .qris-section {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
-}
-
-.icon-circle img {
-    width: 65px;
-    height: auto;
-   
-}
-
-/* Efek hover */
-.icon-button:hover .icon-circle {
-    transform: scale(1.1);
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-.icon-button:active .icon-circle {
-    transform: scale(0.95);
-}
-
-.masjid-list {
+    justify-content: space-between;
+    gap: 20px;
+    text-align: left;
+  }
+  
+  .left {
+    width: 50%;
+  }
+  
+  .right {
+    width: 50%;
     text-align: center;
-    padding: 50px 20px;
-}
+  }
+  
+  .qris-box {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .amount-box {
 
-.location-title {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  
+  .amount-box .icon {
+    width: 24px;
+    margin-right: 10px;
+  }
+  
+  .amount-box .pink {
+    color: #e70069;
+  }
+  
+  .note {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .deadline-box {
+    background: #fde8dc;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     gap: 10px;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.location-title img {
-    width: 24px;
-}
-
-.masjid-container {
-    display: flex;
-    gap: 20px; /* Jarak antar kartu */
-    overflow-x: auto; /* Biar bisa scroll ke samping */
-    white-space: nowrap; /* Cegah turun ke bawah */
-    padding-bottom: 10px; /* Tambahkan padding bawah agar tidak terpotong */
-    scroll-snap-type: x mandatory; /* Opsional: Snap ke kartu */
-}
-
-.masjid-container::-webkit-scrollbar {
-    display: none; /* Untuk Chrome, Safari */
-}
-
-.masjid-card {
-    flex: 0 0 auto; /* Supaya tidak mengecil */
-    width: 300px; /* Sesuaikan dengan desain */
-    scroll-snap-align: start; /* Opsional: Agar scroll terasa lebih smooth */
-}
-
-
-
-
-.masjid-card {
-    background: white;
-    
-    padding: 15px;
-    width: 300px;
-    text-align: left; /* Membuat teks rata kiri */
+  }
   
+  .deadline-box .icon {
+    width: 20px;
+  }
+  
+.hidden-input {
+  display: none;
 }
 
-.masjid-card img {
+.custom-upload {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #536fcd;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  
+  transition: background 0.3s ease;
+}
+
+.custom-upload:hover {
+  background-color: #2a3ab4;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.icon-upload {
+  width: 16px;
+  height: 16px;
+}
+
+.qr-code {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.masjid-card h3 {
-    font-size: 20px;
-    margin: 10px 0 5px;
-}
-
-.masjid-card p {
-    font-size: 16px;
-    color: #666;
-}
-
-.donasi-btn {
-    background: linear-gradient(to right, #6A11CB, #2575FC);
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.donasi-btn:hover {
-    background: linear-gradient(to right, #2575FC, #6A11CB);
-}
-
-
-footer {
-    background: linear-gradient(to right, #4658AE, #6493D3);
-    color: white;
-    padding: 30px 0;
-    text-align: center;
-}
-
-.footer-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    flex-wrap: wrap;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.footer-logo img {
-    width: 200px; /* Sesuaikan ukuran */
-    height: auto; /* Biar tidak terlalu besar */
-    padding-top: 0; /* Hindari padding berlebih */
-    margin-top: 10px;
-   
-}
-
-.footer-links {
-    display: flex;
-    flex: 1;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.footer-section {
-    min-width: 150px;
-    text-align: left;
-}
-
-.footer-section h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.footer-section p {
-    font-size: 14px;
-    margin: 5px 0;
-}
-
-.footer-section a {
-    color: white;
-    text-decoration: none;
-    transition: 0.3s;
-    font-size: 14px;
-}
-
-.footer-section a:hover {
-    text-decoration: underline;
-}
-
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
-
-.footer-social {
-    display: flex;
-    gap: 15px;
-}
-
-.footer-social img {
-    width: 24px;
-    height: 24px;
-}
-
-.footer-copy {
+    max-width: 280px;
+    margin: auto;
+    padding: 16px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  
+  .qr-code {
+    width: 100%;
+    max-width: 280px;
+    margin: auto;
+  }
+  
+  .scan-info {
     font-size: 12px;
-    opacity: 0.8;
-}
+    margin-top: 10px;
+    color: #555;
+  }
+  
+  .apps {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    height: 70px;
+    width: auto;
+  }
+  
+  .apps img {
+    max-width: 100%;
+    height: auto;
+    background: white;
+    padding: 12px;
+  
+  }
+  
+  .how-to {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    height: 120px;
+    width: auto;
+  }
+  
+  .how-to img {
+  
+    max-width: 100%;
+    height: auto;
+    background: white;
+    padding: 12px;
+    
+   
+  }
+  

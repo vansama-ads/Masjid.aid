@@ -1,6 +1,34 @@
 <?php
-   session_start();
-   include "koneksi.php";
+session_start();
+include "koneksi.php";
+
+if(isset($_POST['username'])) {
+    $username = mysqli_real_escape_string($koneksi, $_POST['username']);
+    $password = $_POST['sandi']; // Ambil input password
+
+    // Query untuk mendapatkan user berdasarkan username
+    $query = mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$username'");
+    $data = mysqli_fetch_assoc($query);
+
+    // Cek apakah user ditemukan dan password cocok
+    if ($data && password_verify($password, $data['sandi'])) {
+        // Simpan session login
+        $_SESSION['logged_in'] = true;
+        $_SESSION['role'] = $data['role'];
+        $_SESSION['username'] = $data['username'];
+        $_SESSION['user_id'] = $data['user_id'];
+
+        // Redirect berdasarkan role
+        if ($data['role'] == 'admin') {
+            echo '<script>alert("Kamu adalah Admin!"); location.href="../homepage.php";</script>';
+        } else {
+            echo '<script>alert("Selamat datang, '.$data['nama'].'"); location.href="../homepage.php";</script>';
+        }
+    } else {
+        // Jika login gagal
+        echo '<script>alert("Username atau password salah!"); location.href="index.php";</script>';
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -14,34 +42,7 @@
 </head>
 <body>
 
-<?php
-if(isset($_POST['username'])) {
-    $username = $_POST['username'];
-    $password = $_POST['sandi']; // Sesuaikan dengan form input
 
-    // Query untuk cek user berdasarkan username dan password
-    $query = mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$username' AND sandi = '$password'");
-
-    if(mysqli_num_rows($query) > 0) {
-        $data = mysqli_fetch_assoc($query); // Ambil data user
-
-        // Simpan session login
-        $_SESSION['logged_in'] = true;
-        $_SESSION['role'] = $data['role']; // Simpan role dari database
-        $_SESSION['username'] = $data['username']; // Simpan username ke session
-
-        // Cek apakah user adalah admin atau bukan
-        if ($data['role'] == 'admin') {
-            echo '<script>alert("Kamu adalah Admin!"); location.href="../homepage.php";</script>';
-        } else {
-            echo '<script>alert("Selamat datang, '.$data['nama'].'"); location.href="../homepage.php";</script>';
-        }
-    } else {
-        // Jika login gagal
-        echo '<script>alert("Username atau password salah!"); location.href="index.php";</script>';
-    }
-}
-?>
 
 <div class="container">
     <div class="left">

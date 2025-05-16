@@ -192,6 +192,23 @@ header {
   height: 16px;
 }
 
+
+.submit-button {
+  display: block;
+  margin-top: 20px;
+  background-color: #ff4b5c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.submit-button:hover {
+  background-color: #ff2e44;
+}
+
+
 .qr-code {
     width: 100%;
     max-width: 280px;

@@ -2,6 +2,31 @@
 session_start();
 include "koneksi.php";
 
+
+
+
+
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+    $user_id = $_SESSION['user_id'];
+
+    // Cek apakah user sudah punya foto
+    $query = "SELECT foto FROM user WHERE user_id = '$user_id'";
+    $result = mysqli_query($koneksi, $query);
+    $user = mysqli_fetch_assoc($result);
+
+    // Jika belum ada foto, set foto default
+    if (empty($user['foto'])) {
+        $default_foto = 'default.jpg'; // Gambar default
+        $query_update = "UPDATE user SET foto = '$default_foto' WHERE user_id = '$user_id'";
+        mysqli_query($koneksi, $query_update);
+    }
+    
+    header("Location: profile.php"); // Arahkan ke halaman profil
+    exit;
+}
+
+
+
 if(isset($_POST['username'])) {
     $username = mysqli_real_escape_string($koneksi, $_POST['username']);
     $password = $_POST['sandi']; // Ambil input password
@@ -20,13 +45,13 @@ if(isset($_POST['username'])) {
 
         // Redirect berdasarkan role
         if ($data['role'] == 'admin') {
-            echo '<script>alert("Kamu adalah Admin!"); location.href="../homepage.php";</script>';
+            echo '<script>alert("Kamu adalah Admin!"); location.href="../info.php";</script>';
         } else {
-            echo '<script>alert("Selamat datang, '.$data['nama'].'"); location.href="../homepage.php";</script>';
+            echo '<script>alert("Selamat datang, '.$data['nama'].'"); location.href="../info.php";</script>';
         }
     } else {
         // Jika login gagal
-        echo '<script>alert("Username atau password salah!"); location.href="index.php";</script>';
+        echo '<script>alert("Username atau password salah!"); location.href="homepage.php";</script>';
     }
 }
 ?>

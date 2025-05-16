@@ -188,7 +188,7 @@ $sql = mysqli_query($koneksi, $query);
         </div>
         <div class="footer-bottom">
             <div class="footer-social">
-                <a href="https://wa.me/085876335559?text=Assalamualaikum" target="_blank"><img src="img/assets/whatsapp.png" alt="WhastApp"></a>
+                <a href="https://wa.me/6285876335559?text=Assalamualaikum" target="_blank"><img src="img/assets/whatsapp.png" alt="WhastApp"></a>
                 <a href="https://www.instagram.com/evannsm._/profilecard/?igsh=MTVvMzN5NWRmams2bA==" target="_blank"><img src="img/assets/instagram.png" alt="YouTube"></a>
                 <a href="https://x.com/satriamhrdk_art?t=sXq56TSAp-1CvQScUs51cA&s=09" target="_blank"><img src="img/assets/twitter.png" alt="Instagram"></a>
             </div>

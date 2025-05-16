@@ -2,10 +2,7 @@
 session_start();
 include "login_user/koneksi.php";
 
-if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-    header("Location: login_user/login.php");
-    exit;
-}
+
 
 $search = "";
 if (isset($_GET['search'])) {

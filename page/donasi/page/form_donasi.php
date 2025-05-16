@@ -3,6 +3,15 @@ session_start();
 include "../../login_user/koneksi.php";
 
 
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    echo "<script>
+        alert('Silakan login terlebih dahulu untuk mengakses halaman ini.');
+        window.location.href = '../../login_user/login.php';
+    </script>";
+    exit;
+}
+
+
 $search = "";
 if (isset($_GET['search'])) {
     $search = mysqli_real_escape_string($koneksi, $_GET['search']);
@@ -52,7 +61,7 @@ $metode_query = mysqli_query($koneksi, "SELECT * FROM metode_pembayaran");
                 <div class="search-container">
     <form method="GET" action="info.php">
         <div class="search-box">
-            <div class="search-icon">
+            <div class="search-icon">  
                 <img src="../../img/assets/search.png" alt="">
             </div>
             <div class="search-input">
@@ -112,17 +121,15 @@ $metode_query = mysqli_query($koneksi, "SELECT * FROM metode_pembayaran");
 
             <label>Metode Pembayaran:</label><br>
             <?php while ($row = mysqli_fetch_assoc($metode_query)) : ?>
-                <label><input type="radio" name="metode_pembayaran" value="<?= $row['id_metode'] ?>" required> <?= $row['nama'] ?></label><br>
+                <label><input type="radio" name="id_metode" value="<?= $row['id_metode'] ?>" required> <?= $row['nama'] ?></label><br>
             <?php endwhile; ?>
 
-            <label>
-                <input type="checkbox" name="sembunyikan"> Sembunyikan nama saya
-            </label><br>
+
 
             <label>Pesan atau Doa (Opsional):</label><br>
             <textarea name="pesan" placeholder="Tuliskan pesan atau doa..."></textarea><br>
 
-            <button type="submit">Kirim Donasi</button>
+            <button type="submit" name="submit" value="kirim_donasi">Kirim Donasi</button>
 
         </form>
     </div>

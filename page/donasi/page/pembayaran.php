@@ -14,32 +14,101 @@ $id_transaksi = $_GET['id_transaksi'];
 $query = mysqli_query($koneksi, "SELECT * FROM transaksi WHERE id_transaksi = '$id_transaksi'");
 $transaksi = mysqli_fetch_assoc($query);
 
-// Ambil daftar metode pembayaran dari database
-$metode_query = mysqli_query($koneksi, "SELECT * FROM metode_pembayaran");
+
+$user_id = $_SESSION['user_id'];
+$query = "SELECT * FROM user WHERE user_id = '$user_id'";
+$result = mysqli_query($koneksi, $query);
+$user = mysqli_fetch_assoc($result); // ambil satu baris data user
+
+// Ambil ID donasi dari URL
+// Ambil ID donasi dari transaksi
+$id_donasi = $transaksi['id_donasi'];
+
+// Ambil data donasi dari database
+$query = mysqli_query($koneksi, "SELECT * FROM donasi_tujuan WHERE id_donasi = '$id_donasi'");
+$donasi = mysqli_fetch_assoc($query);
+
+
 ?>
+
+
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Pembayaran</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konfirmasi Donasi</title>
+  
+  <link rel="stylesheet" href="../../css/donasi/style-pembayaran.css">
 </head>
+<header>
+        <div class="fcontainer">
+            <nav class="wrapper">
+                <div class="brand">
+                    <img src="../img/assets/LOGO.png" alt="">
+                    <h3>| Pembayaran</h3>
+                </div>
+                
+               
+  
+
+
+
+            </nav>
+        </div>
+    </header> 
 <body>
-    <h2>Pembayaran Donasi</h2>
-    <p>Jumlah Donasi: Rp <?= number_format($transaksi['jumlah'], 0, ',', '.') ?></p>
+  <div class="container">
+    <div class="card">
+      <img src="../../img/assets/pembayaran/logo.png" alt="Logo" class="logo">
+      <p class="thanks">Terimakasih <span class="highlight"><?= htmlspecialchars($user['nama']) ?></span> atas Donasi yang akan anda berikan pada Masjid :</p>
+      <h2 class="masjid-name"><?= $donasi['nama'] ?></h2>
 
-    <form action="proses_pembayaran.php" method="POST">
-        <input type="hidden" name="id_transaksi" value="<?= $id_transaksi ?>">
+      <div class="qris-section">
+        <div class="left">
+          <div class="qris-box">QRIS</div>
+          <div class="amount-box">
+            <img src="../../img/assets/pembayaran/donation-icon.png" class="icon">
+            <strong><span class="amount">Rp. <span class="pink"> <?= number_format($transaksi['jumlah'], 0, ',', '.') ?></span></span></strong>
+          </div>
+          <p class="note">Harap transfer sesuai nominal diatas (sampai 3 digit terakhir) agar dapat terkonfirmasi otomatis dan kebaikan ini dapat kami teruskan.</p>
+          <div class="deadline-box">
+            <img src="../../img/assets/pembayaran/clock-icon.png" class="icon">
+            <span>Transfer sebelum: <br><strong>1 Jam Setelah Anda Mengakses Halaman Ini</strong></span>
+          </div>
+          <form action="upload_bukti.php" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="id_transaksi" value="<?= $id_transaksi ?>">
 
-        <label>Pilih Metode Pembayaran:</label>
-        <select name="id_metode" required>
-            <?php while ($row = mysqli_fetch_assoc($metode_query)) : ?>
-                <option value="<?= $row['id_metode'] ?>"><?= $row['nama'] ?> (<?= $row['kategori'] ?>)</option>
-            <?php endwhile; ?>
-        </select>
-        <br>
+    <label for="file-upload" class="custom-upload">
+        <img src="../../img/assets/pembayaran/upload-icon-white.svg" alt="Upload Icon" class="icon-upload">
+        UPLOAD BUKTI PEMBAYARAN DISINI
+    </label>
+    <input type="file" id="file-upload" name="bukti" class="hidden-input" required>
 
-        <button type="submit">Bayar Sekarang</button>
-    </form>
+    <button type="submit" name="submit" class="submit-button">KIRIM</button>
+</form>
+
+
+        </div>
+        <div class="right">
+          <img src="../../img/assets/pembayaran/qr.png" alt="QR Code" class="qr-code">
+          <p class="scan-info">Scan QR-Code berikut untuk mentransfer dengan app kesayangan anda.</p>
+        </div>
+      </div>
+
+      <div class="apps">
+  <img src="../../img/assets/pembayaran/apps-strip.png" alt="Aplikasi Pembayaran">
+                </div>
+                <div class="how-to">
+  <img src="../../img/assets/pembayaran/steps-strip.png" alt="Langkah-langkah pembayaran">
+</div>
+
+    </div>
+  </div>
 </body>
 </html>

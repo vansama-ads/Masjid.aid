@@ -2,11 +2,15 @@
 session_start();
 include "../login_user/koneksi.php";
 
-// Cek apakah user sudah login
-if (!isset($_SESSION['user_id'])) {
-    header("Location: ../login_user/login.php");
+
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    echo "<script>
+        alert('Silakan login terlebih dahulu untuk mengakses halaman ini.');
+        window.location.href = '../login_user/login.php';
+    </script>";
     exit;
 }
+
 
 $user_id = $_SESSION['user_id'];
 $query = "SELECT * FROM user WHERE user_id = '$user_id'";
@@ -47,11 +51,9 @@ $user = mysqli_fetch_assoc($result); // ambil satu baris data user
         <aside class="sidebar">
             
             <ul>
-                <li><a href="#"  ><i class="fas fa-user"></i> User Info</a></li>
-                <li><a href="#disimpan"><i class="fas fa-bookmark"></i> Disimpan</a></li>
-                <li><a href="#riwayat"><i class="fas fa-history"></i> Riwayat</a></li>
-                <li><a href="#notifikasi"><i class="fas fa-bell"></i> Notifikasi</a></li>
-                <li class="logout"><a href="#"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
+                <li><a href="#"  > User Info</a></li>
+                <li><a href="#riwayat"> Riwayat</a></li>
+                <li class="logout"><a href="../login_user/logout.php"> Log out</a></li>
             </ul>
         </aside>
 
@@ -59,7 +61,27 @@ $user = mysqli_fetch_assoc($result); // ambil satu baris data user
         <main id="user-info" class="content">
             <section  class="content-section">
                 <div class="profile-header">
-                    <img src="avatar.jpg" alt="Profile Picture">
+                <form action="upload_foto.php" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="user_id" value="<?= htmlspecialchars($user_id) ?>">
+
+                        <label for="foto_input">
+                            <img 
+                                src="../img/user/<?= htmlspecialchars($user['foto'] ) ?>" 
+                                alt="Foto Profil"
+                                style=" cursor: pointer;"
+                            >
+                        </label>
+
+                        <input 
+                            type="file" 
+                            name="foto" 
+                            id="foto_input" 
+                            accept="image/*" 
+                            style="display: none;" 
+                            onchange="this.form.submit()"
+                        >
+                    </form>
+
                     <div>
                         <h1>  <?= htmlspecialchars($user['nama']) ?> <i class="fas fa-edit"></i></h1>
                         <p><span>

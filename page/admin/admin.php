@@ -41,8 +41,8 @@ $no = 0;
                 <li><a href="admin.php"   ><i class="fas fa-user"></i> User Info</a></li>
                 <li><a href="masjid/admin-masjid.php"><i class="fas fa-bookmark"></i> Donation List</a></li>
                 <li><a href="pembayaran/konfirmasi.php"><i class="fas fa-history"></i>Confirm Payment</a></li>
-                <li><a href="#notifikasi"><i class="fas fa-bell"></i> Notifikasi</a></li>
-                <li class="logout"><a href="#"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
+                <li><a href="../info.php"><i class="fas fa-bell"></i> Kembali</a></li>
+                <li class="../login_user/logout.php"><a href="#"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
             </ul>
         </aside>
 

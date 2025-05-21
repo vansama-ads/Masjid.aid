@@ -70,8 +70,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    
-
 }
 
 .navigation>li{
@@ -100,9 +98,7 @@ header {
     border-radius: 20px;
 }
 
-.active:hover {
-    color: #eaeaea !important;
-}
+
 
 /* Styling dropdown */
 .dropdown {

@@ -66,7 +66,7 @@ $user = mysqli_fetch_assoc($result); // ambil satu baris data user
 
                         <label for="foto_input">
                             <img 
-                                src="../img/user/<?= htmlspecialchars($user['foto'] ) ?>" 
+                                src="../img/user/<?= htmlspecialchars( $user['foto'] ) ?>" 
                                 alt="Foto Profil"
                                 style=" cursor: pointer;"
                             >

@@ -101,7 +101,7 @@ $metode_query = mysqli_query($koneksi, "SELECT * FROM metode_pembayaran");
         <p><?= $donasi['alamat'] ?></p>
         <p><strong>Alamat:</strong> Jl. Pecantingan, Sekardangan Indah, Sidoarjo</p>
         <p><strong>Telp:</strong> +62 812-3456-7890</p>
-        <p><strong>Dana Terkumpul:</strong>
+        <p><strong>Dana Terkumpul:<br>Rp. <?= $donasi['jumlah'] ?></strong>
             
         </p>
     </div>

@@ -6,6 +6,9 @@ $nama = "";
 $alamat = "";
 $deskripsi = "";
 $id_donasi = "";
+$alamat_lengkap = "";
+$hp = "";
+
 
 // Cek apakah sedang edit data
 if (isset($_GET['ubah'])) {
@@ -15,10 +18,13 @@ if (isset($_GET['ubah'])) {
     $result = mysqli_fetch_assoc($sql);
 
     if ($result) {
-        $nama = $result['nama'];
-        $alamat = $result['alamat'];
-        $deskripsi = $result['deskripsi'];
-    }
+    $nama = $result['nama'];
+    $alamat = $result['alamat'];
+    $alamat_lengkap = $result['alamat_lengkap'];
+    $hp = $result['hp'];
+    $deskripsi = $result['deskripsi'];
+}
+
 }
 ?>
 
@@ -63,10 +69,19 @@ if (isset($_GET['ubah'])) {
                 <td>Foto</td>
                 <td><input type="file"  name="foto" value="<?php echo $foto; ?>" accept="image/*"></td>
             </tr>
-            <tr>
-                <td>Alamat</td>
-                <td><input type="text" name="alamat" value="<?php echo $alamat; ?>"></td>
-            </tr>
+                <tr>
+                    <td>Alamat Singkat</td>
+                    <td><input type="text" name="alamat" value="<?php echo $alamat; ?>"></td>
+                </tr>
+                <tr>
+                    <td>Alamat Lengkap</td>
+                    <td><input type="text" name="alamat_lengkap" value="<?php echo $alamat_lengkap; ?>"></td>
+                </tr>
+                <tr>
+                    <td>Nomor HP</td>
+                    <td><input type="text" name="hp" value="<?php echo $hp; ?>"></td>
+                </tr>
+
             <tr>
                 <td>Deskripsi</td>
                 <td><input type="text" name="deskripsi"  value="<?php echo $deskripsi; ?>"></td>

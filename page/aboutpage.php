@@ -123,7 +123,7 @@ include "login_user/koneksi.php";
                 <div class="footer-section">
                     <h3>Legal</h3>
                     <p><a href="#">Kebijakan Privasi</a></p>
-                    <p><a href="#">Syarat & Ketentuan</a></p>
+                    <p><a href="#">Syarat dan Ketentuan</a></p>
                     <p><a href="#">Hak Cipta</a></p>
                 </div>
             </div>

@@ -14,7 +14,7 @@ $no = 0;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar Donasi</title>
-    <link rel="stylesheet" href="../../css/style-admin.css"> <!-- Hubungkan dengan file CSS -->
+    <link rel="stylesheet" href="../../css/admin/style-admin.css"> <!-- Hubungkan dengan file CSS -->
 </head>
 <body>
 <header>
@@ -35,11 +35,12 @@ $no = 0;
     <aside class="sidebar">
             
             <ul>
-                <li><a href="../admin.php"   ><i class="fas fa-user"></i> User Info</a></li>
-                <li><a href="admin-masjid.php"><i class="fas fa-bookmark"></i> Donation List</a></li>
-                <li><a href="../pembayaran/konfirmasi.php"><i class="fas fa-history"></i>Confirm Payment</a></li>
-                <li><a href="../../info.php"><i class="fas fa-bell"></i> Kembali</a></li>
-                <li class="../../login_user/logout.php"><a href="#"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
+                <li><a href="../admin.php"   > User Info</a></li>
+                <li><a href="admin-masjid.php">Donation List</a></li>
+                <li><a href="../pembayaran/konfirmasi.php">Confirm Payment</a></li>
+                <li><a href="../pembayaran/metode.php">Payment Method List</a></li>
+                <li><a href="../../info.php">Kembali</a></li>
+                <li ><a href="../../login_user/logout.php"> Log out</a></li>
             </ul>
         </aside>
  <div class="container">
@@ -57,7 +58,7 @@ $no = 0;
             <th>Alamat Singkat</th>
             <th>Alamat Lengkap</th>
             <th>HP Takmir</th>
-            <th>Deskripsi</th>
+            <th>kebutuhan</th>
             <th>Jumlah</th>
             <th>Aksi</th>
         </tr>
@@ -67,7 +68,9 @@ $no = 0;
             <td><?php echo $result['nama']; ?></td>
             <td> <img src="../../img/<?php echo $result['foto']; ?>" style="width: 200px;"></td>
             <td><?php echo $result['alamat']; ?></td>
-            <td><?php echo $result['deskripsi']; ?></td>
+            <td><?php echo $result['alamat_lengkap']; ?></td>
+            <td><?php echo $result['hp']; ?></td>
+            <td><?php echo $result['kebutuhan']; ?></td>
             <td><?php echo $result['jumlah']; ?></td>
             <td><a href="add-masjid.php?ubah=<?php echo $result['id_donasi']; ?>" type="button">
                      <img src="../../img/assets/edit.png" alt="edit">

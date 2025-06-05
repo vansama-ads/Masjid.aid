@@ -15,6 +15,7 @@ JOIN transaksi t ON p.id_transaksi = t.id_transaksi
 JOIN user u ON t.user_id = u.user_id
 JOIN donasi_tujuan d ON t.id_donasi = d.id_donasi
 JOIN metode_pembayaran m ON t.id_metode = m.id_metode
+ORDER BY waktu_pembayaran DESC;
 
 
 ";
@@ -29,7 +30,7 @@ $no = 0;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konfirmasi Donasi</title>
-    <link rel="stylesheet" href="../../css/style-admin.css"> <!-- Hubungkan dengan file CSS -->
+    <link rel="stylesheet" href="../../css/admin/style-admin.css"> <!-- Hubungkan dengan file CSS -->
 </head>
 <body>
 <header>
@@ -50,11 +51,14 @@ $no = 0;
     <aside class="sidebar">
             
             <ul>
-                <li><a href="../admin.php"   ><i class="fas fa-user"></i> User Info</a></li>
-                <li><a href="../masjid/admin-masjid.php"><i class="fas fa-bookmark"></i> Donation List</a></li>
-                <li><a href="konfirmasi.php"><i class="fas fa-history"></i>Confirm Payment</a></li>
-                <li><a href="../../info.php"><i class="fas fa-bell"></i> Kembali</a></li>
-                <li class="logout"><a href="#"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
+            
+                <li><a href="../admin.php"   > User Info</a></li>
+                <li><a href="../masjid/admin-masjid.php">Donation List</a></li>
+                <li><a href="konfirmasi.php">Confirm Payment</a></li>
+                <li><a href="metode.php">Payment Method List</a></li>
+                <li><a href="../../info.php">Kembali</a></li>
+                <li ><a href="../../login_user/logout.php"> Log out</a></li>
+            
             </ul>
         </aside>
  <div class="container">

@@ -15,35 +15,33 @@ $id_donasi = $_POST['id_donasi'];
 $jumlah = $_POST['jumlah'];
 $id_metode = $_POST['id_metode'];
 $pesan = $_POST['pesan'];
+$status = 'pending';
 
 // Debugging: Cek apakah data POST sudah diterima dengan benar
 echo "<pre>";
 print_r($_POST);
 echo "</pre>";
 
+// Escape input untuk menghindari SQL Injection
+$user_id = mysqli_real_escape_string($koneksi, $user_id);
+$id_donasi = mysqli_real_escape_string($koneksi, $id_donasi);
+$jumlah = mysqli_real_escape_string($koneksi, $jumlah);
+$id_metode = mysqli_real_escape_string($koneksi, $id_metode);
+$pesan = mysqli_real_escape_string($koneksi, $pesan);
+$status = mysqli_real_escape_string($koneksi, $status);
+
 // Siapkan query untuk memasukkan data transaksi
 $query = "INSERT INTO transaksi (user_id, id_donasi, jumlah, status, id_metode, pesan) 
-          VALUES (?, ?, ?, ?, ?, ?)";
+          VALUES ('$user_id', '$id_donasi', '$jumlah', '$status', '$id_metode', '$pesan')";
 
 // Eksekusi query dan cek apakah berhasil
-if ($query = $koneksi->prepare($query)) {
-    $pending = 'pending';
-    $query->bind_param('iiisis', $user_id, $id_donasi, $jumlah, $pending, $id_metode, $pesan);
+if (mysqli_query($koneksi, $query)) {
     // Ambil ID transaksi terakhir
-   if ($query->execute()) {
-    // Pastikan data berhasil dimasukkan sebelum redirect
-    // Redirect ke halaman pembayaran
-    $query_view = "SELECT * FROM transaksi ORDER BY id_transaksi DESC";
-    $result = $koneksi->query($query_view);
-    $row_transaksi= $result->fetch_assoc();
-    // print_r($row_transaksi);   
-    $id_transaksi = $row_transaksi['id_transaksi'];
+    $id_transaksi = mysqli_insert_id($koneksi);
     header("Location: pembayaran.php?id_transaksi=$id_transaksi");
-    exit;  // Pastikan tidak ada eksekusi lebih lanjut setelah header
-   }
+    exit;
 } else {
     // Debugging: Tampilkan error jika query gagal
     die("Gagal menyimpan transaksi: " . mysqli_error($koneksi));
 }
-
 ?>

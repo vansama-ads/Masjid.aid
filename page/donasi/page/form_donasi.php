@@ -99,8 +99,8 @@ $metode_query = mysqli_query($koneksi, "SELECT * FROM metode_pembayaran");
         <img src="../../img/<?= $donasi['foto']?>" class="foto-masjid" alt="Foto Masjid">
         <h2><?= $donasi['nama'] ?></h2>
         <p><?= $donasi['alamat'] ?></p>
-        <p><strong>Alamat:</strong> Jl. Pecantingan, Sekardangan Indah, Sidoarjo</p>
-        <p><strong>Telp:</strong> +62 812-3456-7890</p>
+        <p><strong>Alamat:</strong> <?= $donasi['alamat_lengkap'] ?></p>
+        <p><strong>Telp:</strong><?= $donasi['hp'] ?></p>
         <p><strong>Dana Terkumpul:<br>Rp. <?= $donasi['jumlah'] ?></strong>
             
         </p>

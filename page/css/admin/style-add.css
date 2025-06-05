@@ -1,0 +1,126 @@
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+header {
+    background: linear-gradient(90deg, #3b82f6, #7c3aed);
+    color: white;
+    padding: 16px 32px; /* ganti rem ke px */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    font-size: 24px; /* ganti rem ke px */
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 32px;
+}
+
+form {
+    background: white;
+    border-radius: 20px;
+    padding: 32px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+form h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 24px;
+    font-weight: 700;
+}
+
+form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #333;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #cbd5ff, #e9d8fd);
+    color: #333;
+    font-size: 16px;
+    resize: vertical;
+    margin-bottom: 16px;
+}
+
+form textarea {
+    min-height: 80px;
+}
+
+form button,
+form a.btn {
+    display: inline-block;
+    background-color: #3b82f6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+    text-align: center;
+    font-size: 16px;
+}
+
+form button:hover,
+form a.btn:hover {
+    background-color: #2563eb;
+}
+
+form a.btn-danger {
+    background-color: #ef4444;
+}
+
+form a.btn-danger:hover {
+    background-color: #dc2626;
+}
+
+p {
+    margin-bottom: 16px;
+}
+
+.error {
+    color: #ef4444;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+footer {
+    background: linear-gradient(90deg, #3b82f6, #7c3aed);
+    color: white;
+    text-align: center;
+    padding: 16px;
+    font-size: 14px;
+}

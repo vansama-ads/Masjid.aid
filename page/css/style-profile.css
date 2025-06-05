@@ -236,3 +236,36 @@ header {
 html {
     scroll-behavior: smooth;
 }
+
+/* Gaya Tabel */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background:linear-gradient(135deg, #d9e4ff, #e2d9ff);
+    border-radius: 10px;
+    border: 1px solid #0072d6;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}  
+
+th, td {
+    padding: 12px;
+    border: 1px solid #0072d6;
+    text-align: left;
+}
+
+th {
+    background-color: linear-gradient(135deg, #d9e4ff, #e2d9ff);
+    color: rgb(0, 0, 0);
+}
+
+tr:nth-child(even) {
+    background-color: #F3F9FF;
+}
+
+table td a img {
+    width: 24px;  
+    height: 24px;
+
+}

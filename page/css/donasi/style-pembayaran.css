@@ -208,7 +208,16 @@ header {
   background-color: #ff2e44;
 }
 
-
+ .transfer-box {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    padding-top: 150px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 600;
+    height: 100%;
+  }
 .qr-code {
     width: 100%;
     max-width: 280px;

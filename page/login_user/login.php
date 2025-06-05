@@ -51,7 +51,7 @@ if(isset($_POST['username'])) {
         }
     } else {
         // Jika login gagal
-        echo '<script>alert("Username atau password salah!"); location.href="homepage.php";</script>';
+        echo '<script>alert("Username atau password salah!"); location.href="../homepage.php";</script>';
     }
 }
 ?>
@@ -81,7 +81,7 @@ if(isset($_POST['username'])) {
     <div class="right">
         <h2>Login</h2>
         <form method="post">
-            <input type="text" name="username" placeholder="Nama" required>
+            <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="sandi" placeholder="Password" required>
             <button type="submit">Login</button>
         </form>

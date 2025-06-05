@@ -4,7 +4,7 @@ include "../../login_user/koneksi.php";
 
 $nama = "";
 $alamat = "";
-$deskripsi = "";
+$kebutuhan = "";
 $id_donasi = "";
 $alamat_lengkap = "";
 $hp = "";
@@ -22,7 +22,7 @@ if (isset($_GET['ubah'])) {
     $alamat = $result['alamat'];
     $alamat_lengkap = $result['alamat_lengkap'];
     $hp = $result['hp'];
-    $deskripsi = $result['deskripsi'];
+    $kebutuhan = $result['kebutuhan'];
 }
 
 }
@@ -38,6 +38,8 @@ if (isset($_GET['ubah'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Donasi</title>
+    <link rel="stylesheet" href="../../css/admin/style-add.css">
+
 </head>
 <body>
 
@@ -49,11 +51,11 @@ if (isset($_GET['ubah'])) {
                 <?php
                        if(isset($_GET['ubah'])){
                     ?>
-                   Edit
+                       Edit Masjid
                     <?php
                          } else {
                     ?> 
-                        Tambah
+                        Tambah Masjid
                     <?php
                          }
                     ?> 
@@ -83,8 +85,8 @@ if (isset($_GET['ubah'])) {
                 </tr>
 
             <tr>
-                <td>Deskripsi</td>
-                <td><input type="text" name="deskripsi"  value="<?php echo $deskripsi; ?>"></td>
+                <td>kebutuhan</td>
+                <td><input type="text" name="kebutuhan"  value="<?php echo $kebutuhan; ?>"></td>
             </tr>
            <tr>
         

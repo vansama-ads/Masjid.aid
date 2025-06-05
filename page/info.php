@@ -84,12 +84,13 @@ $sql = mysqli_query($koneksi, $query);
 </section>
   
 <section class="button-section">
-        <button class="icon-button">
+                    <a href="profile/riwayat.php" class="icon-button">
             <div class="icon-circle">
-                <img src="img/assets/pin-icon.svg" alt="Disimpan">
+                <img src="img/assets/icon-history.svg" alt="Profile">
             </div>
-            <p>Disimpan</p>
-        </button>
+            <p>Riwayat</p>
+        </a>
+
         
         </button>
         <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') : ?>
@@ -111,8 +112,8 @@ $sql = mysqli_query($koneksi, $query);
     </section>
     <section class="masjid-list">
     <div class="location-title">
-        <img src="img/assets/icon-location.svg" alt="Location Icon">
-        <h2>Kec. Sidoarjo</h2>
+      
+        <h1>Jelajahi</h1>
     </div>
 
     <div class="masjid-container">

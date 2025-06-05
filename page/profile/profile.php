@@ -35,7 +35,7 @@ $user = mysqli_fetch_assoc($result); // ambil satu baris data user
             <nav class="wrapper">
                 <div class="brand">
                     <img src="../img/assets/LOGO.png" alt="">
-                    <h3>| Profile</h3>
+                    <h3 style="color:white;">| Profile</h3>
                 </div>
                 
                
@@ -52,7 +52,8 @@ $user = mysqli_fetch_assoc($result); // ambil satu baris data user
             
             <ul>
                 <li><a href="#"  > User Info</a></li>
-                <li><a href="#riwayat"> Riwayat</a></li>
+                <li><a href="riwayat.php"> Riwayat</a></li>
+                <li><a href="../info.php">< Kembali</a></li>
                 <li class="logout"><a href="../login_user/logout.php"> Log out</a></li>
             </ul>
         </aside>
@@ -83,11 +84,15 @@ $user = mysqli_fetch_assoc($result); // ambil satu baris data user
                     </form>
 
                     <div>
-                        <h1>  <?= htmlspecialchars($user['nama']) ?> <i class="fas fa-edit"></i></h1>
+                        <h1>  <?= htmlspecialchars($user['nama']) ?> </h1>
+                        
                         <p><span>
                         <?= htmlspecialchars(implode(', ', array_slice(explode(',', $user['alamat']), 0, 2))) ?>
                         </span>
                         </p>
+                         <a href="edit_profile.php?field=nama" title="Edit Nama" style="text-decoration: none;">
+                            Edit Profile<img src="../img/icons/pen.png" alt="Edit" style="width:16px; height:16px; cursor:pointer; margin-left:5px; ">
+                        </a>
                     </div>
                 </div>
 
@@ -119,108 +124,14 @@ $user = mysqli_fetch_assoc($result); // ambil satu baris data user
 
             </section>
 
-            <section id="disimpan" class="content-section">
-            <div class="profile-header">
-                    <img src="avatar.jpg" alt="Profile Picture">
-                    <div>
-                        <h1>Wanderer <i class="fas fa-edit"></i></h1>
-                        <p>Akademiya, Sumeru City</p>
-                    </div>
-                </div>
+           
+            
 
-                <div class="profile-details">
-                    <div class="info">
-                        <label>Email</label>
-                        <div class="input-box">
-                            <span>wawanhatguys@gmail.com</span>
-                            <i class="fas fa-edit"></i>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <label>No HP</label>
-                        <div class="input-box">
-                            <span>+62 858-7633-5559</span>
-                            <i class="fas fa-edit"></i>
-                        </div>
-                    </div>
-                    <div class="info-full">
-                        <label>Alamat</label>
-                        <div class="input-box">
-                            <span>Akademiya, Sumeru City, Sumeru, Teyvat</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="riwayat" class="content-section">
-            <div class="profile-header">
-                    <img src="avatar.jpg" alt="Profile Picture">
-                    <div>
-                        <h1>Wanderer <i class="fas fa-edit"></i></h1>
-                        <p>Akademiya, Sumeru City</p>
-                    </div>
-                </div>
-
-                <div class="profile-details">
-                    <div class="info">
-                        <label>Email</label>
-                        <div class="input-box">
-                            <span>wawanhatguys@gmail.com</span>
-                            <i class="fas fa-edit"></i>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <label>No HP</label>
-                        <div class="input-box">
-                            <span>+62 858-7633-5559</span>
-                            <i class="fas fa-edit"></i>
-                        </div>
-                    </div>
-                    <div class="info-full">
-                        <label>Alamat</label>
-                        <div class="input-box">
-                            <span>Akademiya, Sumeru City, Sumeru, Teyvat</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="notifikasi" class="content-section">
-            <div class="profile-header">
-                    <img src="avatar.jpg" alt="Profile Picture">
-                    <div>
-                        <h1>Wanderer <i class="fas fa-edit"></i></h1>
-                        <p>Akademiya, Sumeru City</p>
-                    </div>
-                </div>
-
-                <div class="profile-details">
-                    <div class="info">
-                        <label>Email</label>
-                        <div class="input-box">
-                            <span>wawanhatguys@gmail.com</span>
-                            <i class="fas fa-edit"></i>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <label>No HP</label>
-                        <div class="input-box">
-                            <span>+62 858-7633-5559</span>
-                            <i class="fas fa-edit"></i>
-                        </div>
-                    </div>
-                    <div class="info-full">
-                        <label>Alamat</label>
-                        <div class="input-box">
-                            <span>Akademiya, Sumeru City, Sumeru, Teyvat</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            
         </main>
     </div>
  
-    <script src="script.js"></script>
+    
 
 </body>
 </html>

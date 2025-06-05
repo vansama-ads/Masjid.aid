@@ -98,7 +98,7 @@ $sql = mysqli_query($koneksi, $query);
         <div class="ajakan">
     <h2>Yuk Donasi Sekarang!</h2>
         <div class="donate-now">
-        <a href="donasi.php" class="btn">DONASI</a>
+        <a href="info.php" class="btn">DONASI</a>
 </div>
         </div>
         
@@ -151,7 +151,7 @@ $sql = mysqli_query($koneksi, $query);
     <section class="cta-section">
         <div class="cta-container">
             <p class="cta-text">Tunggu apa lagi?</p>
-            <button class="cta-button">DONASI</button>
+          <a href="info.php" style="text-decoration:none;" class="cta-button">DONASI</a>
         </div>
     </section>
 

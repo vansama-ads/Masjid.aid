@@ -30,6 +30,7 @@ $nama_masjid = $data['nama_masjid'];
 <head>
   <meta charset="UTF-8">
   <title>Status Donasi</title>
+  <link rel="icon" type="image/x-icon" href="../../img/assets/favicon.ico">
  <link rel="stylesheet" href="../../css/donasi/style-menunggu.css"> 
 </head>
 <body>

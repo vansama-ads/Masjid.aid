@@ -49,7 +49,7 @@ $donasi = mysqli_fetch_assoc($query);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Konfirmasi Donasi</title>
-  
+  <link rel="icon" type="image/x-icon" href="../../img/assets/favicon.ico">
   <link rel="stylesheet" href="../../css/donasi/style-pembayaran.css">
 </head>
 <header>

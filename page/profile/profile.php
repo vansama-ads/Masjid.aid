@@ -26,6 +26,7 @@ $user = mysqli_fetch_assoc($result); // ambil satu baris data user
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
+    <link rel="icon" type="image/x-icon" href="../img/assets/favicon.ico">
     <link rel="stylesheet" href="../css/style-profile.css">
     
 </head>
@@ -91,7 +92,7 @@ $user = mysqli_fetch_assoc($result); // ambil satu baris data user
                         </span>
                         </p>
                          <a href="edit_profile.php?field=nama" title="Edit Nama" style="text-decoration: none;">
-                            Edit Profile<img src="../img/icons/pen.png" alt="Edit" style="width:16px; height:16px; cursor:pointer; margin-left:5px; ">
+                            Edit Profile<img src="../img/assets/pen.svg" alt="Edit" style="width:16px; height:16px; cursor:pointer; margin-left:5px; ">
                         </a>
                     </div>
                 </div>

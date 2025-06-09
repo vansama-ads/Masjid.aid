@@ -16,6 +16,7 @@ if (isset($_GET['edit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Role</title>
+    <link rel="icon" type="image/x-icon" href="../img/assets/favicon.ico">
     <link rel="stylesheet" href="../css/style-edit.css">
 </head>
 <body>

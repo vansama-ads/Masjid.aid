@@ -51,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8" />
     <title>Edit Profile</title>
+    <link rel="icon" type="image/x-icon" href="../img/assets/favicon.ico">
     <link rel="stylesheet" href="../css/admin/style-add.css">
 </head>
 <body>

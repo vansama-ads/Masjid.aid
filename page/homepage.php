@@ -13,7 +13,31 @@ if (isset($_GET['search'])) {
 }
 
 $sql = mysqli_query($koneksi, $query);
+
+
+
+
+$resultDonatur = mysqli_query($koneksi, "
+    SELECT COUNT(DISTINCT user_id) AS jumlah_donatur 
+    FROM transaksi 
+    WHERE status = 'sukses'
+");
+$dataDonatur = mysqli_fetch_assoc($resultDonatur);
+$jumlahDonatur = $dataDonatur['jumlah_donatur'];
+
+
+$resultDana = mysqli_query($koneksi, "
+    SELECT SUM(jumlah) AS total_dana 
+    FROM transaksi 
+    WHERE status = 'sukses'
+");
+$dataDana = mysqli_fetch_assoc($resultDana);
+$totalDana = $dataDana['total_dana'];
+
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -132,14 +156,16 @@ $sql = mysqli_query($koneksi, $query);
     <img src="img/assets/donatur-icon.svg" alt="Donors">
     
         <div class="stat">
-        <h2>812</h2>
-            <p>Telah berdonasi</p>
+        <h2><?php echo $jumlahDonatur; ?></h2>
+        <p>Telah berdonasi</p>
+
         </div>
         <img src="img/assets/dana.svg" style="fill: white;" alt="Funds">
         <div class="stat">
             
-            <h2>Rp. 1.208.000</h2>
-            <p>Dana terkumpul</p>
+        <h2>Rp. <?php echo number_format($totalDana, 0, ',', '.'); ?></h2>
+        <p>Dana terkumpul</p>
+
         </div>
     </div>
 </section>

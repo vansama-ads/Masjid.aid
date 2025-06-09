@@ -1,67 +1,70 @@
-* Reset dasar */
-body, h2, label, select, button {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+* Reset dasar */ body,
+h2,
+label,
+select,
+button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
 }
 
 /* Gaya Umum */
 body {
-    background-color: #EAF4FC;
-    text-align: center;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  background-color: #eaf4fc;
+  text-align: center;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .container {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 350px;
 }
 
 h2 {
-    color: #2C5B80;
-    margin-bottom: 20px;
+  color: #2c5b80;
+  margin-bottom: 20px;
 }
 
 /* Gaya Form */
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 label {
-    font-weight: bold;
-    margin-bottom: 5px;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #D1E3F3;
-    border-radius: 5px;
-    background: #F3F9FF;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #d1e3f3;
+  border-radius: 5px;
+  background: #f3f9ff;
 }
 
 button {
-    background: linear-gradient(90deg, #4F75C2, #8A63D2);
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    font-weight: bold;
+  background: linear-gradient(90deg, #4f75c2, #8a63d2);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
 }
 
 button:hover {
-    background: linear-gradient(90deg, #3B5EA6, #774FBF);
+  background: linear-gradient(90deg, #3b5ea6, #774fbf);
 }

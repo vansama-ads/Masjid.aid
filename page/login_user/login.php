@@ -20,14 +20,14 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
         $query_update = "UPDATE user SET foto = '$default_foto' WHERE user_id = '$user_id'";
         mysqli_query($koneksi, $query_update);
     }
-    
+
     header("Location: profile.php"); // Arahkan ke halaman profil
     exit;
 }
 
 
 
-if(isset($_POST['username'])) {
+if (isset($_POST['username'])) {
     $username = mysqli_real_escape_string($koneksi, $_POST['username']);
     $password = $_POST['sandi']; // Ambil input password
 
@@ -47,7 +47,7 @@ if(isset($_POST['username'])) {
         if ($data['role'] == 'admin') {
             echo '<script>alert("Kamu adalah Admin!"); location.href="../info.php";</script>';
         } else {
-            echo '<script>alert("Selamat datang, '.$data['nama'].'"); location.href="../info.php";</script>';
+            echo '<script>alert("Selamat datang, ' . $data['nama'] . '"); location.href="../info.php";</script>';
         }
     } else {
         // Jika login gagal
@@ -58,6 +58,7 @@ if(isset($_POST['username'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,29 +66,31 @@ if(isset($_POST['username'])) {
     <link rel="icon" type="image/x-icon" href="../img/assets/favicon.ico">
     <title>Login</title>
 </head>
+
 <body>
 
 
 
-<div class="container">
-    <div class="left">
-        <div class="overlay">
-            <button onclick="window.history.back()" class="back-btn">
-                <img src="../img/assets/back-icon.png" alt="Back" width="30">Back
-            </button>
-            <h1>Selamat Datang<br>Kembali</h1>
+    <div class="container">
+        <div class="left">
+            <div class="overlay">
+                <button onclick="window.history.back()" class="back-btn">
+                    <img src="../img/assets/back-icon.png" alt="Back" width="30">Back
+                </button>
+                <h1>Selamat Datang<br>Kembali</h1>
+            </div>
+        </div>
+        <div class="right">
+            <h2>Login</h2>
+            <form method="post">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="sandi" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p>Belum punya akun? <a href="daftar.php">Daftar</a></p>
         </div>
     </div>
-    <div class="right">
-        <h2>Login</h2>
-        <form method="post">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="sandi" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
-        <p>Belum punya akun? <a href="daftar.php">Daftar</a></p>
-    </div>
-</div>
 
 </body>
+
 </html>

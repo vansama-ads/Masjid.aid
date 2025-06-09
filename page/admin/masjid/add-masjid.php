@@ -18,12 +18,12 @@ if (isset($_GET['ubah'])) {
     $result = mysqli_fetch_assoc($sql);
 
     if ($result) {
-    $nama = $result['nama'];
-    $alamat = $result['alamat'];
-    $alamat_lengkap = $result['alamat_lengkap'];
-    $hp = $result['hp'];
-    $kebutuhan = $result['kebutuhan'];
-}
+        $nama = $result['nama'];
+        $alamat = $result['alamat'];
+        $alamat_lengkap = $result['alamat_lengkap'];
+        $hp = $result['hp'];
+        $kebutuhan = $result['kebutuhan'];
+    }
 
 }
 ?>
@@ -34,6 +34,7 @@ if (isset($_GET['ubah'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,24 +43,25 @@ if (isset($_GET['ubah'])) {
     <link rel="stylesheet" href="../../css/admin/style-add.css">
 
 </head>
+
 <body>
 
 
-    <form  method="POST" action="proses-masjid.php" enctype="multipart/form-data">
-    <table align="center">
-            <tr>  
-                <td colspan="2" align="center" >
-                <?php
-                       if(isset($_GET['ubah'])){
-                    ?>
-                       Edit Masjid
+    <form method="POST" action="proses-masjid.php" enctype="multipart/form-data">
+        <table align="center">
+            <tr>
+                <td colspan="2" align="center">
                     <?php
-                         } else {
-                    ?> 
+                    if (isset($_GET['ubah'])) {
+                        ?>
+                        Edit Masjid
+                        <?php
+                    } else {
+                        ?>
                         Tambah Masjid
-                    <?php
-                         }
-                    ?> 
+                        <?php
+                    }
+                    ?>
                 </td>
             </tr>
             <input type="hidden" name="id" value="<?php echo isset($_GET['ubah']) ? $_GET['ubah'] : ''; ?>">
@@ -68,56 +70,57 @@ if (isset($_GET['ubah'])) {
                 <td><input type="text" name="nama" value="<?php echo $nama; ?>"></td>
             </tr>
             <tr>
-                
+
                 <td>Foto</td>
-                <td><input type="file"  name="foto" value="<?php echo $foto; ?>" accept="image/*"></td>
+                <td><input type="file" name="foto" value="<?php echo $foto; ?>" accept="image/*"></td>
             </tr>
-                <tr>
-                    <td>Alamat Singkat</td>
-                    <td><input type="text" name="alamat" value="<?php echo $alamat; ?>"></td>
-                </tr>
-                <tr>
-                    <td>Alamat Lengkap</td>
-                    <td><input type="text" name="alamat_lengkap" value="<?php echo $alamat_lengkap; ?>"></td>
-                </tr>
-                <tr>
-                    <td>Nomor HP</td>
-                    <td><input type="text" name="hp" value="<?php echo $hp; ?>"></td>
-                </tr>
+            <tr>
+                <td>Alamat Singkat</td>
+                <td><input type="text" name="alamat" value="<?php echo $alamat; ?>"></td>
+            </tr>
+            <tr>
+                <td>Alamat Lengkap</td>
+                <td><input type="text" name="alamat_lengkap" value="<?php echo $alamat_lengkap; ?>"></td>
+            </tr>
+            <tr>
+                <td>Nomor HP</td>
+                <td><input type="text" name="hp" value="<?php echo $hp; ?>"></td>
+            </tr>
 
             <tr>
                 <td>kebutuhan</td>
-                <td><input type="text" name="kebutuhan"  value="<?php echo $kebutuhan; ?>"></td>
+                <td><input type="text" name="kebutuhan" value="<?php echo $kebutuhan; ?>"></td>
             </tr>
-           <tr>
-        
-     <td> 
-    <?php
-                       if(isset($_GET['ubah'])){
+            <tr>
+
+                <td>
+                    <?php
+                    if (isset($_GET['ubah'])) {
+                        ?>
+                        <button type="submit" name="aksi" value="edit" class="btn btn-primary">
+
+                            Simpan perubahan
+                        </button>
+                        <?php
+                    } else {
+                        ?>
+                        <button type="submit" name="aksi" value="add" class="btn btn-primary">
+
+                            Tambahkan
+                        </button>
+                        <?php
+                    }
                     ?>
-                    <button type="submit" name="aksi" value="edit" class="btn btn-primary">
-                        
-                        Simpan perubahan
-                    </button>
-                    <?php
-                         } else {
-                    ?> 
-                         <button   type="submit" name="aksi" value="add" class="btn btn-primary">
-                        
-                        Tambahkan
-                      </button>
-                    <?php
-                         }
-                    ?> 
-                    </td> 
-                    <td>    
+                </td>
+                <td>
                     <a href="admin-masjid.php" type="button" class="btn btn-danger">
-                        
+
                         Batal
                     </a>
-                    </td>
-                    </tr>
-                    </table>
+                </td>
+            </tr>
+        </table>
     </form>
 </body>
+
 </html>

@@ -16,11 +16,11 @@ if (isset($_GET['ubah'])) {
     $result = mysqli_fetch_assoc($sql);
 
     if ($result) {
-    $nama = $result['nama'];
-    $kategori = $result['kategori'];
-     $rekening = $result['rekening'];
+        $nama = $result['nama'];
+        $kategori = $result['kategori'];
+        $rekening = $result['rekening'];
 
-}
+    }
 
 }
 ?>
@@ -31,6 +31,7 @@ if (isset($_GET['ubah'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,24 +39,25 @@ if (isset($_GET['ubah'])) {
     <link rel="icon" type="image/x-icon" href="../../img/assets/favicon.ico">
     <link rel="stylesheet" href="../../css/admin/style-add.css">
 </head>
+
 <body>
 
 
-    <form  method="POST" action="proses-metode.php" enctype="multipart/form-data">
-    <table align="center">
-            <tr>  
-                <td colspan="2" align="center" >
-                <?php
-                       if(isset($_GET['ubah'])){
-                    ?>
-                   Edit
+    <form method="POST" action="proses-metode.php" enctype="multipart/form-data">
+        <table align="center">
+            <tr>
+                <td colspan="2" align="center">
                     <?php
-                         } else {
-                    ?> 
+                    if (isset($_GET['ubah'])) {
+                        ?>
+                        Edit
+                        <?php
+                    } else {
+                        ?>
                         Tambah
-                    <?php
-                         }
-                    ?> 
+                        <?php
+                    }
+                    ?>
                 </td>
             </tr>
             <input type="hidden" name="id" value="<?php echo isset($_GET['ubah']) ? $_GET['ubah'] : ''; ?>">
@@ -64,14 +66,16 @@ if (isset($_GET['ubah'])) {
                 <td><input type="text" name="nama" value="<?php echo $nama; ?>"></td>
             </tr>
             <tr>
-                
+
                 <td>Kategori</td>
-                    <td>
-                        <select name="kategori">
-                            <option value="QRIS" <?php if($kategori == "qris") echo "selected"; ?>>QRIS</option>
-                            <option value="Bank" <?php if($kategori == "bank") echo "selected"; ?>>Bank</option>
-                        </select>
-                    </td>
+                <td>
+                    <select name="kategori">
+                        <option value="QRIS" <?php if ($kategori == "qris")
+                            echo "selected"; ?>>QRIS</option>
+                        <option value="Bank" <?php if ($kategori == "bank")
+                            echo "selected"; ?>>Bank</option>
+                    </select>
+                </td>
 
             </tr>
             <tr>
@@ -80,34 +84,35 @@ if (isset($_GET['ubah'])) {
             </tr>
 
 
-        
-     <td> 
-    <?php
-                       if(isset($_GET['ubah'])){
+
+            <td>
+                <?php
+                if (isset($_GET['ubah'])) {
                     ?>
                     <button type="submit" name="aksi" value="edit" class="btn btn-primary">
-                        
+
                         Simpan perubahan
                     </button>
                     <?php
-                         } else {
-                    ?> 
-                         <button   type="submit" name="aksi" value="add" class="btn btn-primary">
-                        
+                } else {
+                    ?>
+                    <button type="submit" name="aksi" value="add" class="btn btn-primary">
+
                         Tambahkan
-                      </button>
+                    </button>
                     <?php
-                         }
-                    ?> 
-                    </td> 
-                    <td>    
-                    <a href="metode.php" type="button" class="btn btn-danger">
-                        
-                        Batal
-                    </a>
-                    </td>
-                    </tr>
-                    </table>
+                }
+                ?>
+            </td>
+            <td>
+                <a href="metode.php" type="button" class="btn btn-danger">
+
+                    Batal
+                </a>
+            </td>
+            </tr>
+        </table>
     </form>
 </body>
+
 </html>

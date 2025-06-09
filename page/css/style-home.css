@@ -1,602 +1,540 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-*, html, body {
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins", sans-serif;
-    scroll-behavior: smooth;
-    
-   
-
+*,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
 }
 
 header {
-    top: 0;
-    position: fixed;
-    width: 100%;
-    height: 80px;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    overflow: visible;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  overflow: visible;
 }
-
-
-
 
 header {
-    background: linear-gradient(to right, #4555ad, #6696d5); /* Background pindah ke sini */
+  background: linear-gradient(
+    to right,
+    #4555ad,
+    #6696d5
+  ); /* Background pindah ke sini */
 }
-
 
 .fcontainer {
-    display: flex;
-    width: 100%;
-    
-    
+  display: flex;
+  width: 100%;
 }
 
-
-    
 .wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 20px;
-    padding: 10px;
-    width: 100%;
-    height: 80px;
-    overflow: visible; /* Pastikan elemen di dalamnya tidak meluber */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
+  padding: 10px;
+  width: 100%;
+  height: 80px;
+  overflow: visible; /* Pastikan elemen di dalamnya tidak meluber */
 }
 
 .brand {
-    display: flex;
-    flex-direction: row;
-    padding: 15px;
-    align-items: center;
-    
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  align-items: center;
 }
 
 .brand > img {
-    width: 200px; /* Sesuaikan ukuran */
-    height: auto; /* Biar tidak terlalu besar */
-    padding-top: 0; /* Hindari padding berlebih */
-    margin-top: 10px;
+  width: 200px; /* Sesuaikan ukuran */
+  height: auto; /* Biar tidak terlalu besar */
+  padding-top: 0; /* Hindari padding berlebih */
+  margin-top: 10px;
 }
 
-
-
-.navigation{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.navigation>li{
-    list-style-type: none;
-    padding: 25px;
+.navigation > li {
+  list-style-type: none;
+  padding: 25px;
 }
 
-.navigation>li>a {
-    color: white;
-    font-size: 20px;
-    text-decoration: none;
-    text-transform: capitalize;
+.navigation > li > a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  text-transform: capitalize;
 }
 
-.navigation>li>a:hover {
-    color: rgb(13, 30, 13);
-    
-    transition: all .2s ease-in-out;
+.navigation > li > a:hover {
+  color: rgb(13, 30, 13);
+
+  transition: all 0.2s ease-in-out;
 }
 
-.active{
-    padding: 13px 30px;
-    width: 100%;
-    background-color: #110d1e;
-    color: #eaeaea;
-    border-radius: 20px;
+.active {
+  padding: 13px 30px;
+  width: 100%;
+  background-color: #110d1e;
+  color: #eaeaea;
+  border-radius: 20px;
 }
-
-
 
 /* Styling dropdown */
 .dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 150px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    border-radius: 5px;
-    padding: 5px 0;
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 150px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border-radius: 5px;
+  padding: 5px 0;
 }
 
 .dropdown-menu li {
-    list-style: none;
+  list-style: none;
 }
 
 .dropdown-menu li a {
-    display: block;
-    padding: 10px;
-    color: black;
-    text-decoration: none;
+  display: block;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
 }
 
 .dropdown-menu li a:hover {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 /* Tampilkan dropdown saat hover */
 .dropdown:hover .dropdown-menu {
-    display: block;
+  display: block;
 }
 
 .dropdown-menu {
-    left: 50%; 
-    transform: translateX(-50%);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-
-.navigation>li>img{
-    width: 50px;
-    height: 50px;
+.navigation > li > img {
+  width: 50px;
+  height: 50px;
 }
 
-.search-box{
-    display: flex;
-    align-items: center;
-    background-color: white;
-    padding: 5px 10px;
-    border-radius: 30px;
-    width: 300px;
-    max-width: 100%;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 30px;
+  width: 300px;
+  max-width: 100%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.search-box>.search-icon>img{
-    width: 20px;
-    height: 20px;
-    padding-top: 8px;
+.search-box > .search-icon > img {
+  width: 20px;
+  height: 20px;
+  padding-top: 8px;
 }
 
-.search-input>.input {
-    border: none;
-    outline: none;
-    background-color: unset;
-    padding: 8px;
-    
+.search-input > .input {
+  border: none;
+  outline: none;
+  background-color: unset;
+  padding: 8px;
 }
 
-
-section{
-    overflow-x: hidden;
-   
-  
-
- 
- 
-
+section {
+  overflow-x: hidden;
 }
 
 .home {
-    margin-top: 80px; /* Sesuaikan dengan tinggi header */
+  margin-top: 80px; /* Sesuaikan dengan tinggi header */
 }
-
 
 .home {
-    position: relative;
-    width: 100%;
-    height: 500px;
-    padding: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    overflow: hidden; /* Pastikan tidak ada scroll */
-    background: url('../img/assets/bg-masjid.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  position: relative;
+  width: 100%;
+  height: 500px;
+  padding: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden; /* Pastikan tidak ada scroll */
+  background: url("../img/assets/bg-masjid.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .home {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 .home {
-    padding-top: 80px; /* Sesuaikan dengan tinggi navbar */
-    margin-top: 80px;
+  padding-top: 80px; /* Sesuaikan dengan tinggi navbar */
+  margin-top: 80px;
 }
 
-.home-content{
-    
-    max-width: 630px;
+.home-content {
+  max-width: 630px;
 }
 
-.home-content h1{
-   font-size: 45px;
-   
+.home-content h1 {
+  font-size: 45px;
 }
 
-.home-content h3{
-    font-size: 40px;
-    color: #4555ad;
- }
+.home-content h3 {
+  font-size: 40px;
+  color: #4555ad;
+}
 
- .home-content p{
-    font-size: 20px;
-    margin: 15px 0 30px;
- }
+.home-content p {
+  font-size: 20px;
+  margin: 15px 0 30px;
+}
 
- .btn{
-    display: inline-block;
-    padding: 10px 28px;
-    background: linear-gradient(45deg, #3b82f6, #9333ea);
-    border: 2px solid #F0F8FF;
-    border-radius: 6px;
-    font-size: 16px;
-    color: white;
-    letter-spacing: 1px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: .3s;
-    
+.btn {
+  display: inline-block;
+  padding: 10px 28px;
+  background: linear-gradient(45deg, #3b82f6, #9333ea);
+  border: 2px solid #f0f8ff;
+  border-radius: 6px;
+  font-size: 16px;
+  color: white;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
 
- }
+.btn:hover {
+  background: transparent;
+  color: #4555ad;
+  border: 2px solid #4555ad;
+}
 
- .btn:hover {
-    background: transparent;
-    color: #4555ad;
-    border: 2px solid #4555ad;
- }
-
-
-
-
-
- /* Bagian Cara Donasi */
+/* Bagian Cara Donasi */
 
 .cara-donasi {
-    
-    align-items: center;
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
+  align-items: center;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .cara-donasi {
-    text-align: center;
-    padding: 50px 20px;
-    margin-top: 20px;
+  text-align: center;
+  padding: 50px 20px;
+  margin-top: 20px;
 }
 
 .cara-donasi h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
+  font-size: 32px;
+  margin-bottom: 20px;
 }
-
 
 .step {
-    display: flex;
-    align-items: center;
-    background: linear-gradient(to right, #C6DAF6, #C6DAF6, #DCBBFF);
-    padding: 15px;
-    margin: 10px auto;
-    width: 70%;
-    border-radius: 55px;
-    font-size: 18px;
-    margin-bottom: 55px;
-    
-   
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to right, #c6daf6, #c6daf6, #dcbbff);
+  padding: 15px;
+  margin: 10px auto;
+  width: 70%;
+  border-radius: 55px;
+  font-size: 18px;
+  margin-bottom: 55px;
 }
-
-
-
-
 
 .step .number {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(45deg, #3b82f6, #9333ea);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    margin-right: 15px;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(45deg, #3b82f6, #9333ea);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-right: 15px;
 }
-.ajakan{
-    margin-bottom: 10px;
+.ajakan {
+  margin-bottom: 10px;
 }
 
-.ajakan h2{
-    text-align: center;
-    font-size: 32px;
-    
-    
+.ajakan h2 {
+  text-align: center;
+  font-size: 32px;
 }
 
 .donate-now {
-    text-align: center;
-    margin-top: 30px;
+  text-align: center;
+  margin-top: 30px;
 }
 
 .donate-now .btn {
-    font-size: 22px;
-    padding: 10px 25px;
-    border-radius: 10px;
-    border: 6px solid #3b82f6;
-    color: #3b82f6;
-    background: white;
+  font-size: 22px;
+  padding: 10px 25px;
+  border-radius: 10px;
+  border: 6px solid #3b82f6;
+  color: #3b82f6;
+  background: white;
 }
 
 .donate-now .btn:hover {
-    background: linear-gradient(45deg, #3b82f6, #9333ea);
-    color: white;
+  background: linear-gradient(45deg, #3b82f6, #9333ea);
+  color: white;
 }
 
-
-
-
-
-
-
 .why-section {
-    padding: 50px 20px;
-    background: #f8f8ff;
-    padding-bottom: 100px;
-    
-   
+  padding: 50px 20px;
+  background: #f8f8ff;
+  padding-bottom: 100px;
 }
 
 .why-title {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
 }
 
-.why-section   h2 {
-    font-size: 40px;
-    margin-bottom: 10px;
-    text-align: center;
-
+.why-section h2 {
+  font-size: 40px;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .why-section .logo {
-    width: 180px;
-    background :linear-gradient(45deg, #7D8DE5, #6595D4);
-    border-radius: 18px;
-   
+  width: 180px;
+  background: linear-gradient(45deg, #7d8de5, #6595d4);
+  border-radius: 18px;
 }
 
 .cards-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    padding-top: 35px;
-    padding-bottom: 20px;
-    gap: 45px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-top: 35px;
+  padding-bottom: 20px;
+  gap: 45px;
 }
 
 .cards-container .card {
-    background: white;
-    padding: 20px;
-    
-    border-radius: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    text-align: center;
-    height: 350px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi smooth */
+  background: white;
+  padding: 20px;
+
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  text-align: center;
+  height: 350px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi smooth */
 }
 
 .cards-container .card:hover {
-    transform: translateY(-10px); /* Naik ke atas 10px */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Tambah bayangan */
+  transform: translateY(-10px); /* Naik ke atas 10px */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Tambah bayangan */
 }
 
-
 .card img {
-    width: 75px;
-    margin-bottom: 10px;
-    padding-top: 70px;
+  width: 75px;
+  margin-bottom: 10px;
+  padding-top: 70px;
 }
 
 .card h3 {
-    font-size: 20px;
-    margin-bottom: 5px;
+  font-size: 20px;
+  margin-bottom: 5px;
 }
 
 .card p {
-    font-size: 14px;
-    color: #555;
+  font-size: 14px;
+  color: #555;
 }
-
-
 
 /* Statistik Donasi */
 .donation-stats {
-    background: linear-gradient(to right, #4658AE, #6493D3);
-    padding: 50px 0;
-    text-align: center;
-    color: white;
-   
-    
+  background: linear-gradient(to right, #4658ae, #6493d3);
+  padding: 50px 0;
+  text-align: center;
+  color: white;
 }
 
 .stats-container {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    align-items: center;
-    max-width: 900px;
-    margin: 0 auto;
-    
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .stat {
-    display: flex;
-    flex-direction: column;
-    
-    justify-content: left;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: left;
 }
 
 .stats-container img {
-    width: 75px;
-    height: auto;
-    margin-bottom: 10px;
-    
+  width: 75px;
+  height: auto;
+  margin-bottom: 10px;
 }
 
 .stat h2 {
-    font-size: 24px;
-    font-weight: bold;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .stat p {
-    font-size: 16px;
-   justify-content: left;
+  font-size: 16px;
+  justify-content: left;
 }
-
-
 
 .dalil {
-    padding: 200px;
-    text-align: left;
-    font-style: italic;
-    background: linear-gradient(to right, #ffffff, #f6e8ff);
-    font-size: 30px;
-    height: 200px;
+  padding: 200px;
+  text-align: left;
+  font-style: italic;
+  background: linear-gradient(to right, #ffffff, #f6e8ff);
+  font-size: 30px;
+  height: 200px;
 }
 
-
-
 .cta-container {
-    background: linear-gradient(to right, #4658AE, #6493D3);
-    display: flex;
-    align-items: center;
-    justify-content:center;
-    height: 150px;
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-    padding: 20px ;
-    gap: 20px;
+  background: linear-gradient(to right, #4658ae, #6493d3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  gap: 20px;
 }
 
 .cta-text {
-    font-size: 24px;
-    font-weight: bold;
-    color: #C6DAF6;
+  font-size: 24px;
+  font-weight: bold;
+  color: #c6daf6;
 }
 
 .cta-button {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-    padding: 10px 20px;
-    font-size: 18px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 .cta-button:hover {
-    background: white;
-    color: #4555ad;
+  background: white;
+  color: #4555ad;
 }
 
-
-
 footer {
-    background: linear-gradient(to right, #4658AE, #6493D3);
-    color: white;
-    padding: 30px 0;
-    text-align: center;
+  background: linear-gradient(to right, #4658ae, #6493d3);
+  color: white;
+  padding: 30px 0;
+  text-align: center;
 }
 
 .footer-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .footer-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    flex-wrap: wrap;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .footer-logo img {
-    width: 200px; /* Sesuaikan ukuran */
-    height: auto; /* Biar tidak terlalu besar */
-    padding-top: 0; /* Hindari padding berlebih */
-    margin-top: 10px;
-   
+  width: 200px; /* Sesuaikan ukuran */
+  height: auto; /* Biar tidak terlalu besar */
+  padding-top: 0; /* Hindari padding berlebih */
+  margin-top: 10px;
 }
 
 .footer-links {
-    display: flex;
-    flex: 1;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .footer-section {
-    min-width: 150px;
-    text-align: left;
+  min-width: 150px;
+  text-align: left;
 }
 
 .footer-section h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-    font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .footer-section p {
-    font-size: 14px;
-    margin: 5px 0;
+  font-size: 14px;
+  margin: 5px 0;
 }
 
 .footer-section a {
-    color: white;
-    text-decoration: none;
-    transition: 0.3s;
-    font-size: 14px;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 14px;
 }
 
 .footer-section a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
 }
 
 .footer-social {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  gap: 15px;
 }
 
 .footer-social img {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 .footer-copy {
-    font-size: 12px;
-    opacity: 0.8;
+  font-size: 12px;
+  opacity: 0.8;
 }

@@ -33,78 +33,83 @@ $sql = mysqli_query($koneksi, $query);
 
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="icon" type="image/x-icon" href="../img/assets/favicon.ico">
     <link rel="stylesheet" href="../css/style-profile.css">
-    
+
 </head>
+
 <body>
-<header>
+    <header>
         <div class="fcontainer">
             <nav class="wrapper">
                 <div class="brand">
                     <img src="../img/assets/LOGO.png" alt="">
                     <h3 style="color:white;">| Riwayat</h3>
                 </div>
-                
-               
-  
+
+
+
 
 
 
             </nav>
         </div>
-    </header> 
+    </header>
     <div class="container">
         <!-- Sidebar -->
         <aside class="sidebar">
-            
+
             <ul>
-                <li><a href="profile.php"  > User Info</a></li>
+                <li><a href="profile.php"> User Info</a></li>
                 <li><a href="#riwayat"> Riwayat</a></li>
-                <li><a href="../info.php">< Kembali</a></li>
+                <li><a href="../info.php">
+                        < Kembali</a>
+                </li>
                 <li class="logout"><a href="../login_user/logout.php"> Log out</a></li>
             </ul>
         </aside>
 
         <!-- Konten -->
         <main id="user-info" class="content">
-            <section  class="content-section">
-               <table>
-    <h2>Riwayat</h2>
-        <tr>
-            <th>Nama</th>
-            <th>Jumlah</th>
-            <th>Waktu</th>
-            <th>Status</th>
-           
-        </tr>
-        <?php while ($result = mysqli_fetch_assoc($sql)) { ?>
-        <tr>
-            <td><?php echo $result ['nama']; ?></td>
-            <td><?php echo $result['jumlah']; ?></td>
-            <td><?php echo $result['waktu']; ?></td>
-            <td><?php echo $result['status']; ?></td>
+            <section class="content-section">
+                <table>
+                    <h2>Riwayat</h2>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Jumlah</th>
+                        <th>Waktu</th>
+                        <th>Status</th>
 
-            
-           
-        </tr>
-        <?php } ?>
-    </table>
+                    </tr>
+                    <?php while ($result = mysqli_fetch_assoc($sql)) { ?>
+                        <tr>
+                            <td><?php echo $result['nama']; ?></td>
+                            <td><?php echo $result['jumlah']; ?></td>
+                            <td><?php echo $result['waktu']; ?></td>
+                            <td><?php echo $result['status']; ?></td>
+
+
+
+                        </tr>
+                    <?php } ?>
+                </table>
 
             </section>
 
-           
-            
 
-            
+
+
+
         </main>
     </div>
- 
-    
+
+
 
 </body>
+
 </html>

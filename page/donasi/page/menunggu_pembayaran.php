@@ -3,7 +3,7 @@ session_start();
 include '../../login_user/koneksi.php';
 
 if (!isset($_GET['id_transaksi'])) {
-    exit("Transaksi tidak ditemukan.");
+  exit("Transaksi tidak ditemukan.");
 }
 
 $id_transaksi = $_GET['id_transaksi'];
@@ -17,7 +17,7 @@ $query = mysqli_query($koneksi, "SELECT p.status, t.id_donasi, u.nama AS nama_us
     WHERE p.id_transaksi = '$id_transaksi'");
 
 if (!$query || mysqli_num_rows($query) == 0) {
-    exit("Data transaksi tidak ditemukan.");
+  exit("Data transaksi tidak ditemukan.");
 }
 
 $data = mysqli_fetch_assoc($query);
@@ -27,28 +27,32 @@ $nama_masjid = $data['nama_masjid'];
 ?>
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <title>Status Donasi</title>
   <link rel="icon" type="image/x-icon" href="../../img/assets/favicon.ico">
- <link rel="stylesheet" href="../../css/donasi/style-menunggu.css"> 
+  <link rel="stylesheet" href="../../css/donasi/style-menunggu.css">
 </head>
+
 <body>
 
-  <?php if ($status === 'sukses') : ?>
+  <?php if ($status === 'sukses'): ?>
     <img src="../../img/assets/status/success-icon.png" class="status-icon" alt="Sukses">
     <div class="message">
       Terima kasih <span class="highlight"><?= htmlspecialchars($nama_user) ?></span>,<br>
-      Donasi anda ke Masjid <span class="highlight"><?= htmlspecialchars($nama_masjid) ?></span> sudah <b>berhasil</b> kami terima.
+      Donasi anda ke Masjid <span class="highlight"><?= htmlspecialchars($nama_masjid) ?></span> sudah <b>berhasil</b>
+      kami terima.
     </div>
-  <?php elseif ($status === 'pending') : ?>
+  <?php elseif ($status === 'pending'): ?>
     <img src="../../img/assets/status/pending-icon.png" class="status-icon" alt="Pending">
     <div class="message">
       Terima kasih <span class="highlight"><?= htmlspecialchars($nama_user) ?></span>,<br>
-      Bukti donasi anda ke Masjid <span class="highlight"><?= htmlspecialchars($nama_masjid) ?></span> sedang kami <b>verifikasi</b>.<br>
+      Bukti donasi anda ke Masjid <span class="highlight"><?= htmlspecialchars($nama_masjid) ?></span> sedang kami
+      <b>verifikasi</b>.<br>
       Mohon tunggu beberapa saat.
     </div>
-  <?php else : ?>
+  <?php else: ?>
     <div class="message">
       <b>Status tidak dikenali.</b><br>
       Silakan hubungi admin.
@@ -61,4 +65,5 @@ $nama_masjid = $data['nama_masjid'];
   </div>
 
 </body>
+
 </html>

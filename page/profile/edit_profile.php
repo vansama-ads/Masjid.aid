@@ -48,26 +48,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8" />
     <title>Edit Profile</title>
     <link rel="icon" type="image/x-icon" href="../img/assets/favicon.ico">
     <link rel="stylesheet" href="../css/admin/style-add.css">
 </head>
-<body>
-    
 
-    <?php if (!empty($error)) : ?>
+<body>
+
+
+    <?php if (!empty($error)): ?>
         <p style="color:red;"><?= htmlspecialchars($error) ?></p>
     <?php endif; ?>
-    
+
     <form method="POST" action="">
         <h2>Edit Profile</h2>
         <label for="nama">Nama:</label><br />
         <input type="text" id="nama" name="nama" value="<?= htmlspecialchars($user['nama']) ?>" required><br /><br />
 
         <label for="email">Email:</label><br />
-        <input type="email" id="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" required><br /><br />
+        <input type="email" id="email" name="email" value="<?= htmlspecialchars($user['email']) ?>"
+            required><br /><br />
 
         <label for="no_hp">No HP:</label><br />
         <input type="text" id="no_hp" name="no_hp" value="<?= htmlspecialchars($user['no_hp']) ?>"><br /><br />
@@ -76,7 +79,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <textarea id="alamat" name="alamat" rows="3"><?= htmlspecialchars($user['alamat']) ?></textarea><br /><br />
 
         <button type="submit">Simpan Perubahan</button>
-        <a href="profile.php"  class="btn btn-danger">Batal</a>
+        <a href="profile.php" class="btn btn-danger">Batal</a>
     </form>
 </body>
+
 </html>

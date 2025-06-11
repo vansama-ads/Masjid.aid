@@ -34,7 +34,7 @@ CREATE TABLE `donasi_tujuan` (
   `alamat` varchar(200) DEFAULT NULL,
   `alamat_lengkap` varchar(255) NOT NULL,
   `hp` int(15) NOT NULL,
-  `kebutuhan` varchar(50) DEFAULT NULL,
+  `penggunaan` varchar(50) DEFAULT NULL,
   `jumlah` decimal(50,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -42,7 +42,7 @@ CREATE TABLE `donasi_tujuan` (
 -- Dumping data untuk tabel `donasi_tujuan`
 --
 
-INSERT INTO `donasi_tujuan` (`id_donasi`, `foto`, `nama`, `alamat`, `alamat_lengkap`, `hp`, `kebutuhan`, `jumlah`) VALUES
+INSERT INTO `donasi_tujuan` (`id_donasi`, `foto`, `nama`, `alamat`, `alamat_lengkap`, `hp`, `penggunaan`, `jumlah`) VALUES
 (21, 'sitihajar.jpg', 'Masjid Siti Hajar', ' Kabupaten Sidoarjo', 'Jasem, Bulusidokare, Kec. Sidoarjo, Kabupaten Sidoarjo, Jawa Timur 61234', 876767676, '-', 0),
 (22, 'cordoba.jpg', 'Masjid Cordoba', ' Kabupaten Sidoarjo', 'Jl. Pecantingan, RT.12/RW.4, Sekardangan Indah, Sekardangan, Kec. Sidoarjo, Kabupaten Sidoarjo, Jawa Timur 61251', 8989898, 'Karpet sajadah', 25000),
 (24, 'albadar.png', 'Masjid Al-Badar', ' Kabupaten Sidoarjo', 'Jl. Pecantingan, Sekardangan Indah, Sekardangan, Kec. Sidoarjo, Kabupaten Sidoarjo, Jawa Timur 61215', 8654325, 'renovasi kamar mandi', 101000),

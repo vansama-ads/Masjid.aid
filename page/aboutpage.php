@@ -94,7 +94,7 @@ include "login_user/koneksi.php";
                 <ol>
                     <li>Mempermudah donasi masjid secara digital.</li>
                     <li>Menjamin transparansi dalam pengelolaan dana.</li>
-                    <li>Membangun kesadaran dan kepedulian umat terhadap kebutuhan masjid.</li>
+                    <li>Membangun kesadaran dan kepedulian umat terhadap penggunaan masjid.</li>
                 </ol>
             </div>
         </div>

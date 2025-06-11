@@ -104,7 +104,9 @@ $metode_query = mysqli_query($koneksi, "SELECT * FROM metode_pembayaran");
             <p><?= $donasi['alamat'] ?></p>
             <p><strong>Alamat:</strong> <?= $donasi['alamat_lengkap'] ?></p>
             <p><strong>Telp:</strong><?= $donasi['hp'] ?></p>
-            <p><strong>Dana Terkumpul:<br>Rp. <?= $donasi['jumlah'] ?></strong>
+            <p><strong>Dana yang Telah Diterima:<br>Rp. <?= $donasi['jumlah'] ?></strong>
+            <p><strong>Penggunaan Dana:</strong><br><a href="../../admin/masjid/pengeluaran.php?id_donasi=<?= $id_donasi ?>">Pengeluaran</a>
+   
 
             </p>
         </div>
@@ -127,7 +129,7 @@ $metode_query = mysqli_query($koneksi, "SELECT * FROM metode_pembayaran");
                     <label><input type="radio" name="id_metode" value="<?= $row['id_metode'] ?>" required>
                         <?= $row['nama'] ?></label><br>
                 <?php endwhile; ?>
-
+                    
 
 
                 <label>Pesan atau Doa (Opsional):</label><br>

@@ -61,7 +61,7 @@ $no = 0;
                     <th>Alamat Singkat</th>
                     <th>Alamat Lengkap</th>
                     <th>HP Takmir</th>
-                    <th>kebutuhan</th>
+                    <th>penggunaan</th>
                     <th>Jumlah</th>
                     <th>Aksi</th>
                 </tr>
@@ -73,12 +73,14 @@ $no = 0;
                         <td><?php echo $result['alamat']; ?></td>
                         <td><?php echo $result['alamat_lengkap']; ?></td>
                         <td><?php echo $result['hp']; ?></td>
-                        <td><?php echo $result['kebutuhan']; ?></td>
+                        <td><?php echo $result['penggunaan']; ?></td>
                         <td><?php echo $result['jumlah']; ?></td>
-                        <td><a href="add-masjid.php?ubah=<?php echo $result['id_donasi']; ?>" type="button">
+                        <td>
+                         <a href="pengeluaran.php?id_donasi=<?= $result['id_donasi'] ?>">Pengeluaran</a>    
+                        <a href="add-masjid.php?ubah=<?php echo $result['id_donasi']; ?>" type="button">
                                 <img src="../../img/assets/edit.png" alt="edit">
                             </a>
-
+                            
                             <a href="proses-masjid.php?hapus=<?php echo $result['id_donasi']; ?>" type="button"
                                 onClick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
                                 <img src="../../img/assets/delete.png" alt="hapus"></a>

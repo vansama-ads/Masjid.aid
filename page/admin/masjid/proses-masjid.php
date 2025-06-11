@@ -29,7 +29,7 @@ if (isset($_GET['hapus'])) {
 if (isset($_POST['aksi'])) {
     $nama = mysqli_real_escape_string($koneksi, $_POST['nama']);
     $alamat = mysqli_real_escape_string($koneksi, $_POST['alamat']);
-    $kebutuhan = mysqli_real_escape_string($koneksi, $_POST['kebutuhan']);
+    $penggunaan = mysqli_real_escape_string($koneksi, $_POST['penggunaan']);
     $alamat_lengkap = mysqli_real_escape_string($koneksi, $_POST['alamat_lengkap']);
     $hp = mysqli_real_escape_string($koneksi, $_POST['hp']);
     $foto = $_FILES['foto']['name'];
@@ -44,7 +44,7 @@ if (isset($_POST['aksi'])) {
 
     if ($_POST['aksi'] == "add") {
         // Insert Data
-        $query = "INSERT INTO donasi_tujuan (foto, nama, alamat, kebutuhan, alamat_lengkap, hp) VALUES ('$foto', '$nama', '$alamat', '$kebutuhan', '$alamat_lengkap', '$hp')";
+        $query = "INSERT INTO donasi_tujuan (foto, nama, alamat, penggunaan, alamat_lengkap, hp) VALUES ('$foto', '$nama', '$alamat', '$penggunaan', '$alamat_lengkap', '$hp')";
     } elseif ($_POST['aksi'] == "edit") {
         // Pastikan `id_donasi` ada sebelum update
         $query_check = "SELECT foto FROM donasi_tujuan WHERE id_donasi = '$id_donasi'";
@@ -56,7 +56,7 @@ if (isset($_POST['aksi'])) {
             exit();
         }
 
-        $query = "UPDATE donasi_tujuan SET nama='$nama', alamat='$alamat', kebutuhan='$kebutuhan', alamat_lengkap='$alamat_lengkap', hp='$hp'";
+        $query = "UPDATE donasi_tujuan SET nama='$nama', alamat='$alamat', penggunaan='$penggunaan', alamat_lengkap='$alamat_lengkap', hp='$hp'";
 
         // Jika ada file foto baru yang diunggah
         if (!empty($foto)) {

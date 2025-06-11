@@ -4,7 +4,7 @@ include "../../login_user/koneksi.php";
 
 $nama = "";
 $alamat = "";
-$kebutuhan = "";
+$penggunaan = "";
 $id_donasi = "";
 $alamat_lengkap = "";
 $hp = "";
@@ -22,7 +22,7 @@ if (isset($_GET['ubah'])) {
         $alamat = $result['alamat'];
         $alamat_lengkap = $result['alamat_lengkap'];
         $hp = $result['hp'];
-        $kebutuhan = $result['kebutuhan'];
+        $penggunaan = $result['penggunaan'];
     }
 
 }
@@ -88,8 +88,8 @@ if (isset($_GET['ubah'])) {
             </tr>
 
             <tr>
-                <td>kebutuhan</td>
-                <td><input type="text" name="kebutuhan" value="<?php echo $kebutuhan; ?>"></td>
+                <td>Penggunaan</td>
+                <td><input type="text" name="penggunaan" value="<?php echo $penggunaan; ?>"></td>
             </tr>
             <tr>
 

@@ -103,7 +103,7 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 550px; /* Tinggi sesuai kebutuhan */
+  height: 550px; /* Tinggi sesuai penggunaan */
   background: url(../img/assets/info-bg.png) center/cover no-repeat;
 
   color: aliceblue;

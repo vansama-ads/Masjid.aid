@@ -110,7 +110,7 @@ $no = 0;
                                     <button type="submit" name="konfirmasi">Konfirmasi</button>
                                 </form>
                             <?php else: ?>
-                                -
+                            
                             <?php endif; ?>
                         </td>
                     </tr>
